@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ChiniPapeleria"
+    }
+  },
+  "defaultProject": "ChiniPapeleria",
+  "cli": {
+    "analytics": "74e2e73a-2780-42e4-ab40-54fa932859d1"
+  }
 }

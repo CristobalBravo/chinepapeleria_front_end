@@ -10,16 +10,11 @@ import { Observable } from 'rxjs';
 })
 export class UsuarioService {
 
-  private url='http://localhost:8000/api/usuario';
+  private url='http://localhost:8000/api/usuario/';
   constructor(private http:HttpClient) { }
 
   crearUsuario(usuario): Observable<any>{
-    let json= JSON.stringify(usuario);
-    let params= 'json='+json;
-    let headers= new HttpHeaders().set('Content-Type','aplication/form-data');
-    return this.http.post(this.url+'/registrar',params,{headers:headers});
-
-
+    return this.http.post(this.url+'registrar',usuario);
     }
 
 }

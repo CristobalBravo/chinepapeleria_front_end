@@ -1,0 +1,33 @@
+<div class="container mt-5 ">
+    <div class="card">
+        <div class="card-body">
+            <form class="form-group" (ngSubmit)="guardar(f)" #f="ngForm">
+
+                <div class="container" style="text-align: center;">
+                    <h3>Registrar ChiniCliente</h3>
+                    <div class="row row-cols-2">
+                        <div class="col"><label type="text">Rut:</label></div>
+                        <div class="col"> <input class="col-10 " type="text" name="Rut"   required    [(ngModel)]="usuario.rut" id="Rut" required placeholder="11111111"></div>
+                        <div class="col"><label type="text">Nombres:</label></div>
+                        <div class="col"> <input class="col-10" type="text" name="nombre"       [(ngModel)]="usuario.nombre" placeholder="Nombres"></div>
+                        <div class="col"><label>Apellidos:</label></div>
+                        <div class="col"><input class="col-10" type="text" name="apellido"      [(ngModel)]="usuario.apellido" id="apellido" placeholder="Apellidos"></div>
+                        <div class="col"><label for="">Télefono:</label></div>
+                        <div class="col"><input class="col-10" type="text" name="telefono"     [(ngModel)]="usuario.telefono" id="Télefono" placeholder="999999999"></div>
+                        <div class="col"><label for="">Correo:</label></div>
+                        <div class="col"><input class="col-10" type="email" name="email"    [(ngModel)]="usuario.email" id="email" placeholder="ejemplo@mail.com"></div>
+                        <div class="col"><label for="">Ciudad:</label></div>
+                        <div class="col"><input class="col-10" type="text" name="ciudad"   [(ngModel)]="usuario.ciudad" id="ciudad" placeholder="Ciudad"></div>
+                        <div class="col"><label for="">Calle:</label></div>
+                        <div class="col"><input class="col-10" type="text" name="calle"   [(ngModel)]="usuario.calle" id="calle" placeholder="Calle"></div>
+                        <div class="col"><label for="">Contraseña:</label></div>
+                        <div class="col"><input class="col-10" type="text" name="password"  [(ngModel)]="usuario.password" id="password" placeholder="Password"></div>
+                        <div class="align-content-center"><button type="submit" class="btn btn-primary"> Guardar</button></div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>

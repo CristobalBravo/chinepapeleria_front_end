@@ -1,33 +1,31 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['home']">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-link" [routerLink]="['home']" style="color: #ff0080;">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Tienda
-                </a>
+                <a class="nav-link dropdown-toggle" style="color: #ff0080;" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Tienda
+          </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" [routerLink]="['lapiz']">Lápiz</a>
-                    <a class="dropdown-item" [routerLink]="['flashcard']">FlashCard</a>
+                    <a class="dropdown-item" style="color: #ff0080;" [routerLink]="['lapiz']">Lápiz</a>
+                    <a class="dropdown-item" style="color: #ff0080;" [routerLink]="['flashcard']">FlashCard</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Chini Novedades</a>
+                <a class="nav-link" href="#" style="color: #ff0080;">Chini Novedades</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Preguntas Frecuentes</a>
+                <a class="nav-link" href="#" style="color: #ff0080;">Preguntas Frecuentes</a>
             </li>
         </ul>
-        <div>
-            <button type="button" class="btn btn-outline-danger " [routerLink]="['login']">Iniciar Sesión</button>
-
-        </div>
+        <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-outline my-2 my-sm-0" style="border-color: #ff0080; color: #ff0080;" [routerLink]="['login']" type="submit">Iniciar Sesión</button>
+        </form>
     </div>
 </nav>

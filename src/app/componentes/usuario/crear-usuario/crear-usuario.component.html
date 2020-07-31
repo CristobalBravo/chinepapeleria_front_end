@@ -1,28 +1,46 @@
 <div class="container mt-5 ">
-    <div class="card">
-        <div class="card-body">
+    <div class="card" style="border-color: #ff0080;">
+        <div class="card-body ">
             <form class="form-group" (ngSubmit)="guardar(f)" #f="ngForm">
 
                 <div class="container" style="text-align: center;">
-                    <h3>Registrar ChiniCliente</h3>
-                    <div class="row row-cols-2">
+                    <h3 style="color: #ff0080;">Registrar ChiniCliente</h3>
+                    <div class="row row-cols-2 mt-5">
                         <div class="col"><label type="text">Rut:</label></div>
-                        <div class="col"> <input class="col-10 " type="text" name="Rut"   required    [(ngModel)]="usuario.rut" id="Rut" required placeholder="11111111"></div>
+                        <div class="col"> <input class="form-control col-10 text-center" type="text" name="Rut"   required  [class.is-invalid]="Rut.invalid && Rut.touched" #Rut="ngModel" minlength="7"   [(ngModel)]="usuario.rut" id="Rut" maxlength="8" required placeholder="11111111">
+                            <small *ngIf="Rut.invalid && Rut.touched" class="form-text text-danger">Ingrese Rut</small>
+                        </div>
+                        <div class="col"><label type="text">Código de Verificación:</label></div>
+                        <div class="col"> <input class="form-control col-10 text-center" type="text" name="codigoVerificacion"   required  [class.is-invalid]="codigo_ver.invalid && codigo_ver.touched"   [(ngModel)]="usuario.codigo_verificacion" id="codigo_ver" required
+                                maxlength="1" #codigo_ver="ngModel" required placeholder="0"><small *ngIf="codigo_ver.invalid && codigo_ver.touched" class="form-text text-danger"> Ingrese el Digito Verificador</small> </div>
                         <div class="col"><label type="text">Nombres:</label></div>
-                        <div class="col"> <input class="col-10" type="text" name="nombre"       [(ngModel)]="usuario.nombre" placeholder="Nombres"></div>
+                        <div class="col"> <input class="form-control col-10 text-center" type="text" name="nombre"  #nombres="ngModel" required  [class.is-invalid]="nombres.invalid && nombres.touched"     [(ngModel)]="usuario.nombre" placeholder="Nombres">
+                            <small *ngIf="nombres.invalid && nombres.touched" class="form-text text-danger"> Ingrese Nombres</small> </div>
                         <div class="col"><label>Apellidos:</label></div>
-                        <div class="col"><input class="col-10" type="text" name="apellido"      [(ngModel)]="usuario.apellido" id="apellido" placeholder="Apellidos"></div>
+                        <div class="col"><input class=" form-control col-10 text-center" type="text" name="apellido"   #apellidos="ngModel"  [class.is-invalid]="apellidos.invalid && apellidos.touched" required  [(ngModel)]="usuario.apellido" id="apellido" placeholder="Apellidos">
+                            <small *ngIf="apellidos.invalid && apellidos.touched" class="form-text text-danger"> Ingrese Apellidos</small>
+                        </div>
                         <div class="col"><label for="">Télefono:</label></div>
-                        <div class="col"><input class="col-10" type="text" name="telefono"     [(ngModel)]="usuario.telefono" id="Télefono" placeholder="999999999"></div>
+                        <div class="col"><input class="form-control col-10 text-center" type="text" name="telefono"  #telefono="ngModel" minlength="9" maxlength="9"    [(ngModel)]="usuario.numero" id="Télefono" required [class.is-invalid]="telefono.invalid && telefono.touched"
+                                placeholder="999999999">
+                            <small *ngIf="telefono.invalid && telefono.touched" class="form-text text-danger"> Ingrese Télefono</small>
+                        </div>
                         <div class="col"><label for="">Correo:</label></div>
-                        <div class="col"><input class="col-10" type="email" name="email"    [(ngModel)]="usuario.email" id="email" placeholder="ejemplo@mail.com"></div>
+                        <div class="col"><input class=" form-control col-10 text-center" type="email" name="email"    [(ngModel)]="usuario.email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="ejemplo@mail.com" required [class.is-invalid]="email.invalid && email.touched"
+                                #email="ngModel">
+                            <small *ngIf="email.invalid && email.touched" class="form-text text-danger"> Ingrese email</small></div>
                         <div class="col"><label for="">Ciudad:</label></div>
-                        <div class="col"><input class="col-10" type="text" name="ciudad"   [(ngModel)]="usuario.ciudad" id="ciudad" placeholder="Ciudad"></div>
-                        <div class="col"><label for="">Calle:</label></div>
-                        <div class="col"><input class="col-10" type="text" name="calle"   [(ngModel)]="usuario.calle" id="calle" placeholder="Calle"></div>
+                        <div class="col"><input class="form-control col-10 text-center" type="text" name="ciudad"   [(ngModel)]="usuario.ciudad" id="ciudad" placeholder="Ciudad" required [class.is-invalid]="ciudad.invalid && ciudad.touched" #ciudad="ngModel"><small *ngIf="ciudad.invalid && ciudad.touched"
+                                class="form-text text-danger"> Ingrese Ciudad</small></div>
+                        <div class="col"><label for="">Dirección:</label></div>
+                        <div class="col"><input class=" form-control col-10 text-center" type="text" name="calle"   [(ngModel)]="usuario.calle" id="calle" required [class.is-invalid]="calle.invalid && calle.touched" #calle="ngModel" placeholder="Av.Andres Bello #992">
+                            <small *ngIf="calle.invalid && calle.touched" class="form-text text-danger text-center"> Ingrese Dirección</small>
+                        </div>
                         <div class="col"><label for="">Contraseña:</label></div>
-                        <div class="col"><input class="col-10" type="text" name="password"  [(ngModel)]="usuario.password" id="password" placeholder="Password"></div>
-                        <div class="align-content-center"><button type="submit" class="btn btn-primary"> Guardar</button></div>
+                        <div class="col"><input class=" form-control col-10 text-center" type="text" name="password"  [(ngModel)]="usuario.password" id="password" required [class.is-invalid]="password.invalid && password.touched" #password="ngModel" placeholder="Password">
+                            <small *ngIf="password.invalid && password.touched" class="form-text text-danger"> Ingrese Contraseña</small>
+                        </div>
+                        <div class="container mt-5" style="text-align: center;"><button type="submit" class="btn btn-primary" style="background-color: #ff0080; border-color: white;"> Guardar</button></div>
                     </div>
                 </div>
 

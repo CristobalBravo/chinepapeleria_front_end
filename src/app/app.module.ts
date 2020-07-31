@@ -13,6 +13,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { LapizComponent } from './componentes/productos/lapiz/lapiz.component';
 import { FlashcardComponent } from './componentes/flashcard/flashcard.component';
 import { CrearUsuarioComponent } from './componentes/usuario/crear-usuario/crear-usuario.component';
+import { PerfilComponent } from './componentes/Perfil/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CrearUsuarioComponent } from './componentes/usuario/crear-usuario/crear
     LoginComponent,
     LapizComponent,
     FlashcardComponent,
-    CrearUsuarioComponent
+    CrearUsuarioComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

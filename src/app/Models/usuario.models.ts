@@ -5,7 +5,7 @@ export class UsuarioModel{
   rut:string;
   codigo_verificacion:string;
   email:string;
-  telefono:string;
+  numero:string;
   ciudad:string;
   calle:string;
   password:string;

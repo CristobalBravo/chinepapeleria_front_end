@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 import {  Router } from '@angular/router';
+import { CrearProductoService } from '../../services/Producto/crear-producto.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private loginService:LoginService, private router: Router) { }
+  constructor(private loginService:LoginService, private router: Router,private servise: CrearProductoService) { }
 
   ngOnInit(){
     if(localStorage.getItem('email')){
@@ -61,6 +62,8 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('email', this.login.email);
       }
       console.log("Ingreso correcto");
+      this.servise.crearProducto(null,localStorage.getItem('token')).subscribe(resp=>
+        console.log(resp));
       this.router.navigateByUrl('/perfil');
 
 

@@ -18,6 +18,8 @@ import { CrearLapizComponent } from './componentes/productos/lapiz/crear-lapiz/c
 
 import { CrearProductoComponent } from './componentes/productos/crear-producto/crear-producto.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,8 +31,9 @@ import { CrearProductoComponent } from './componentes/productos/crear-producto/c
     FlashcardComponent,
     CrearUsuarioComponent,
     PerfilComponent,
-    CrearLapizComponent
-    CrearProductoComponent
+    CrearLapizComponent,
+    CrearProductoComponent,
+
   ],
   imports: [
     BrowserModule,

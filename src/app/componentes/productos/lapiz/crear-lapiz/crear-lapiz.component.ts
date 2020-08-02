@@ -4,6 +4,8 @@ import { CrearLapizService } from '../../../../services/Lapiz/crear-lapiz.servic
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { ListarProductoService } from '../../../../services/Producto/listar-producto.service';
+import { ListarPuntasService } from '../../../../services/listar-puntas.service';
 
 
 @Component({
@@ -14,10 +16,18 @@ import Swal from 'sweetalert2';
 export class CrearLapizComponent implements OnInit {
 
   lapiz = new LapizModel();
+  productos: any[]=[];
+  tipoPuntas: any[]=[];
 
-  constructor(private crearLapizService:CrearLapizService, private router:Router ) { }
+  constructor(private crearLapizService:CrearLapizService, private router:Router,
+    private listarproductoService:ListarProductoService, private listarPuntasService:ListarPuntasService
+    ) { }
 
   ngOnInit(): void {
+
+    this.listarproductoService.all().subscribe(resp=>{this.productos=resp[2];});
+    this.listarPuntasService.all().subscribe(resp=>{this.tipoPuntas=resp[2];});
+
   }
 
   guardar(form:NgForm){
@@ -47,6 +57,8 @@ export class CrearLapizComponent implements OnInit {
      });
     });
 
+
+    this.router.navigateByUrl('/lapiz');
 
   }
 

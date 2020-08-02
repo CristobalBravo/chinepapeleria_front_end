@@ -21,9 +21,8 @@
                 <div class="form-group">
                     <label for=""> Tipo de Producto:</label>
                     <select class="form-control" [(ngModel)]="lapiz.Producto_id" #Producto_id="ngModel" name="Producto_id" id="ProdutoID">
-                      <option value=1>Lápiz Tinta Gel</option>
-                      <option value=2>Lápiz Gel Borrable</option>
-                      <option value=3>Lápiz de Trazado</option>
+                      <option *ngFor="let producto of productos" [value]="producto.id">{{ producto.nombre }}</option>
+
 
                     </select>
 

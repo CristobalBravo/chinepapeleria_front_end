@@ -11,6 +11,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { CrearLapizComponent } from './componentes/productos/lapiz/crear-lapiz/crear-lapiz.component';
 
 
+
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
@@ -19,7 +20,7 @@ const routes: Routes = [
   {path: 'registrar', component: CrearUsuarioComponent},
   {path: 'producto/crear', component: CrearProductoComponent, canActivate:[AuthGuard]},
   {path: 'perfil', component: PerfilComponent , canActivate: [AuthGuard]},
-  {path: 'lapiz/crear', component: CrearLapizComponent},
+  {path: 'lapiz/crear', component: CrearLapizComponent, canActivate:[AuthGuard]},
   {path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

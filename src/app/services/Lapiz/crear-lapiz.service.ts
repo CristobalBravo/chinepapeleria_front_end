@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { global } from '../global';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrearLapizService {
 
-  private url='http://localhost:8000/api/lapiz/';
+ url:string;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    this.url=global.url;
+  }
 
   crearLapiz(lapiz,token): Observable<any>{
 
     let headers = new HttpHeaders().set('Authorization',token);
-    return this.http.post(this.url+'crear',lapiz, {headers:headers} );
+    return this.http.post(this.url+'lapiz/crear',lapiz, {headers:headers} );
     }
 }

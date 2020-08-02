@@ -16,6 +16,7 @@ import { CrearUsuarioComponent } from './componentes/usuario/crear-usuario/crear
 import { PerfilComponent } from './componentes/Perfil/perfil/perfil.component';
 import { CrearLapizComponent } from './componentes/productos/lapiz/crear-lapiz/crear-lapiz.component';
 
+import { CrearProductoComponent } from './componentes/productos/crear-producto/crear-producto.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CrearLapizComponent } from './componentes/productos/lapiz/crear-lapiz/c
     CrearUsuarioComponent,
     PerfilComponent,
     CrearLapizComponent
+    CrearProductoComponent
   ],
   imports: [
     BrowserModule,

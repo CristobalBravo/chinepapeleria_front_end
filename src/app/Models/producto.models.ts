@@ -3,7 +3,7 @@ export class ProductoModel{
   nombre:string;
   precio:number;
   stock:number;
-  imagen:string;
+  img:string;
   Categoria_id:number;
   Marca_id:number;
 

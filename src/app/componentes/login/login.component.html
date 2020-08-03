@@ -3,7 +3,7 @@
         <div class="card-body " style="background-color: white ; border-color: #ff0080;">
 
             <form class="form-signin " (ngSubmit)="guardar(l)" #l="ngForm">
-                <img class="mb-4" src="./assets/img/logo.jpeg" alt="" width="72" height="72">
+                <img class="mb-4" src="./assets/img/chinilogo.png" alt="" style="height: 100px; width: auto;">
                 <p>Crea una cuenta con nosotros para que puedas<br>comprar nuestros productos exclusivos y seas<br> un Chinicliente.</p>
                 <div class="container">
                     <input type="email" id="inputEmail" #email="ngModel" required [class.is-invalid]="email.invalid && email.touched" required class="form-control text-center  col-6" name="email" [(ngModel)]="login.email" placeholder="Email" required autofocus>
@@ -25,13 +25,7 @@
                 </div>
                 <label for="" class="mt-3">¿Olvidaste tu Contraseña?</label> <br>
                 <a [routerLink]="['/registrar']">Registrarse</a>
-                <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
-
-
-
             </form>
-
         </div>
-
     </div>
 </div>

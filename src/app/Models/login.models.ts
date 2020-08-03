@@ -1,7 +1,8 @@
-export class LoginModel{
-  email:string;
-  password:string;
-  constructor(){
+export class LoginModel {
+  email: string;
+  password: string;
+  token: string;
+  constructor() {
 
   }
 

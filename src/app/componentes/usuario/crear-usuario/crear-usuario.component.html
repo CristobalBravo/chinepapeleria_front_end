@@ -1,50 +1,93 @@
 <div class="container mt-5 ">
     <div class="card" style="border-color: #ff0080;">
-        <div class="card-body ">
-            <form class="form-group" (ngSubmit)="guardar(f)" #f="ngForm">
+        <div class="card-body">
+          <div class="container" style="text-align: center;">
+            <h3 style="color: #ff0080;">Registrar ChiniCliente</h3>
 
-                <div class="container" style="text-align: center;">
-                    <h3 style="color: #ff0080;">Registrar ChiniCliente</h3>
-                    <div class="row row-cols-2 mt-5">
-                        <div class="col"><label type="text">Rut:</label></div>
-                        <div class="col"> <input class="form-control col-10 text-center" type="text" name="Rut"   required  [class.is-invalid]="Rut.invalid && Rut.touched" #Rut="ngModel" minlength="7"   [(ngModel)]="usuario.rut" id="Rut" maxlength="8" required placeholder="11111111">
-                            <small *ngIf="Rut.invalid && Rut.touched" class="form-text text-danger">Ingrese Rut</small>
-                        </div>
-                        <div class="col"><label type="text">Código de Verificación:</label></div>
-                        <div class="col"> <input class="form-control col-10 text-center" type="text" name="codigoVerificacion"   required  [class.is-invalid]="codigo_ver.invalid && codigo_ver.touched"   [(ngModel)]="usuario.codigo_verificacion" id="codigo_ver" required
-                                maxlength="1" #codigo_ver="ngModel" required placeholder="0"><small *ngIf="codigo_ver.invalid && codigo_ver.touched" class="form-text text-danger"> Ingrese el Digito Verificador</small> </div>
-                        <div class="col"><label type="text">Nombres:</label></div>
-                        <div class="col"> <input class="form-control col-10 text-center" type="text" name="nombre"  #nombres="ngModel" required  [class.is-invalid]="nombres.invalid && nombres.touched"     [(ngModel)]="usuario.nombre" placeholder="Nombres">
-                            <small *ngIf="nombres.invalid && nombres.touched" class="form-text text-danger"> Ingrese Nombres</small> </div>
-                        <div class="col"><label>Apellidos:</label></div>
-                        <div class="col"><input class=" form-control col-10 text-center" type="text" name="apellido"   #apellidos="ngModel"  [class.is-invalid]="apellidos.invalid && apellidos.touched" required  [(ngModel)]="usuario.apellido" id="apellido" placeholder="Apellidos">
-                            <small *ngIf="apellidos.invalid && apellidos.touched" class="form-text text-danger"> Ingrese Apellidos</small>
-                        </div>
-                        <div class="col"><label for="">Télefono:</label></div>
-                        <div class="col"><input class="form-control col-10 text-center" type="text" name="telefono"  #telefono="ngModel" minlength="9" maxlength="9"    [(ngModel)]="usuario.numero" id="Télefono" required [class.is-invalid]="telefono.invalid && telefono.touched"
-                                placeholder="999999999">
-                            <small *ngIf="telefono.invalid && telefono.touched" class="form-text text-danger"> Ingrese Télefono</small>
-                        </div>
-                        <div class="col"><label for="">Correo:</label></div>
-                        <div class="col"><input class=" form-control col-10 text-center" type="email" name="email"    [(ngModel)]="usuario.email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="ejemplo@mail.com" required [class.is-invalid]="email.invalid && email.touched"
-                                #email="ngModel">
-                            <small *ngIf="email.invalid && email.touched" class="form-text text-danger"> Ingrese email</small></div>
-                        <div class="col"><label for="">Ciudad:</label></div>
-                        <div class="col"><input class="form-control col-10 text-center" type="text" name="ciudad"   [(ngModel)]="usuario.ciudad" id="ciudad" placeholder="Ciudad" required [class.is-invalid]="ciudad.invalid && ciudad.touched" #ciudad="ngModel"><small *ngIf="ciudad.invalid && ciudad.touched"
-                                class="form-text text-danger"> Ingrese Ciudad</small></div>
-                        <div class="col"><label for="">Dirección:</label></div>
-                        <div class="col"><input class=" form-control col-10 text-center" type="text" name="calle"   [(ngModel)]="usuario.calle" id="calle" required [class.is-invalid]="calle.invalid && calle.touched" #calle="ngModel" placeholder="Av.Andres Bello #992">
-                            <small *ngIf="calle.invalid && calle.touched" class="form-text text-danger text-center"> Ingrese Dirección</small>
-                        </div>
-                        <div class="col"><label for="">Contraseña:</label></div>
-                        <div class="col"><input class=" form-control col-10 text-center" type="text" name="password"  [(ngModel)]="usuario.password" id="password" required [class.is-invalid]="password.invalid && password.touched" #password="ngModel" placeholder="Password">
-                            <small *ngIf="password.invalid && password.touched" class="form-text text-danger"> Ingrese Contraseña</small>
-                        </div>
-                        <div class="container mt-5" style="text-align: center;"><button type="submit" class="btn btn-primary" style="background-color: #ff0080; border-color: white;"> Guardar</button></div>
-                    </div>
+            <form class="form-group" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" placeholder="Pedro" class="form-control" formControlName="nombre" id="nombre" [ngClass]="{ 'is-invalid': submitted && nombre.errors, 'is-valid': nombre.valid }">
+                  <div *ngIf="submitted && nombre.errors" class="invalid-feedback">
+                    <div *ngIf="nombre.errors.required">El <b>Nombre</b> es requerido.</div>
+                  </div>
                 </div>
-
+                <div class="col-md-6 mb-3">
+                  <label for="apellido">Apellido</label>
+                  <input type="text" placeholder="Perez" class="form-control" formControlName="apellido" id="apellido" [ngClass]="{ 'is-invalid': submitted && apellido.errors, 'is-valid': apellido.valid }">
+                  <div *ngIf="submitted && apellido.errors" class="invalid-feedback">
+                    <div *ngIf="apellido.errors.required">El <b>Apellido</b> es requerido.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label for="rut">RUT</label>
+                  <input type="number" placeholder="11222333" class="form-control" formControlName="rut" id="rut" [ngClass]="{ 'is-invalid': submitted && rut.errors, 'is-valid': rut.valid }">
+                  <div *ngIf="submitted && rut.errors" class="invalid-feedback">
+                    <div *ngIf="rut.errors.required">El <b>RUT</b> es requerido.</div>
+                    <div *ngIf="rut.errors.min">El <b>RUT</b> tiene menos de 7 dígitos.</div>
+                    <div *ngIf="rut.errors.max">El <b>RUT</b> tiene menos de 8 dígitos.</div>
+                  </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                  <label for="codigo_verificacion">Digito Verificador</label>
+                  <input type="text" placeholder="K" class="form-control" formControlName="codigo_verificacion" id="codigo_verificacion" [ngClass]="{ 'is-invalid': submitted && codigo_verificacion.errors, 'is-valid': codigo_verificacion.valid }">
+                  <div *ngIf="submitted && codigo_verificacion.errors" class="invalid-feedback">
+                    <div *ngIf="codigo_verificacion.errors.required">El <b>Dígito Verificador</b> es requerido.</div>
+                    <div *ngIf="codigo_verificacion.errors.minlength || codigo_verificacion.errors.maxlength">El <b>Dígito Verificador</b> debe ser sólo un carácter (0-9 o K).</div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="numero">Número de Teléfono</label>
+                  <input type="number" placeholder="922224444" class="form-control" formControlName="numero" id="numero" [ngClass]="{ 'is-invalid': submitted && numero.errors, 'is-valid': numero.valid }">
+                  <div *ngIf="submitted && numero.errors" class="invalid-feedback">
+                    <div *ngIf="numero.errors.required">El <b>Número de Teléfono</b> es requerido.</div>
+                    <div *ngIf="numero.errors.min">La cantidad de dígitos del <b>Número de Teléfono</b> es incorrecto o no empieza con <b>9XXXXXXXX</b>.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="email">Correo Electrónico</label>
+                  <input type="email" placeholder="email@chini.cl" class="form-control" formControlName="email" id="email" [ngClass]="{ 'is-invalid': submitted && email.errors, 'is-valid': email.valid }">
+                  <div *ngIf="submitted && email.errors" class="invalid-feedback">
+                    <div *ngIf="email.errors.required">El <b>Correo Electrónico</b> es requerido.</div>
+                    <div *ngIf="email.errors.email">El formato del <b>Correo Electrónico</b> es incorrecto.</div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="password">Contraseña</label>
+                  <input type="password" placeholder="1234Chini" class="form-control" formControlName="password" id="password" [ngClass]="{ 'is-invalid': submitted && password.errors, 'is-valid': password.valid }">
+                  <div *ngIf="submitted && password.errors" class="invalid-feedback">
+                    <div *ngIf="password.errors.required">La <b>Contraseña</b> es requerida.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="calle">Dirección</label>
+                  <input type="text" placeholder="Andres Bello #720" class="form-control" formControlName="calle" id="calle" [ngClass]="{ 'is-invalid': submitted && calle.errors, 'is-valid': calle.valid }">
+                  <div *ngIf="submitted && calle.errors" class="invalid-feedback">
+                    <div *ngIf="calle.errors.required">La <b>Dirección</b> es requerida.</div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="ciudad">Ciudad</label>
+                  <input type="text" placeholder="Chillán" class="form-control" formControlName="ciudad" id="ciudad" [ngClass]="{ 'is-invalid': submitted && ciudad.errors, 'is-valid': ciudad.valid }">
+                  <div *ngIf="submitted && ciudad.errors" class="invalid-feedback">
+                    <div *ngIf="ciudad.errors.required">La <b>Ciudad</b> es requerida.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-primary mr-1" style="background-color: #ff0080; border-color: #c5126c;">Registrar Usuario</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Limpiar Fomulario</button>
+              </div>
             </form>
+          </div>
+
         </div>
     </div>
 

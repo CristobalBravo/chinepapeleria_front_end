@@ -2,12 +2,63 @@
 
     <hr color="#ff0080;">
     <h1 style="color: #ff0080;">Lápices</h1>
+    <div class="container">
+        <button class="btn btn-primary" [routerLink]="['/lapiz/crear']">Agregar Producto</button>
+    </div>
     <hr color="#ff0080">
+
+
+    <div class="modal fade" id="detallePedido" tabindex="-1" role="dialog" aria-labelledby="NuevodetallePedido" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title " id="detalle Pedido">Detalle Pedido</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-group" (ngSubmit)="guardar(f)" #f="ngForm">
+
+                        <div class="container" style="text-align: center;">
+                            <div class="row row-cols-2">
+                                <div class="col"><label type="text">Cantidad:</label></div>
+                                <div class="col"> <input class="col-10" type="number" name="cantidad" [(ngModel)]="detallePedido.cantidad" id="cantidad" placeholder="Cantidad"></div>
+                                <div class="col"><label>Precio:</label></div>
+                                <div class="col"><input class="col-10" type="number" name="precio" id="apellido" value="detallePedido.precio" [(ngModel)]="detallePedido.precio" disabled placeholder="Precio"></div>
+
+                                <div class="align-content-center"><button type="submit" class="btn btn-primary"> Guardar</button></div>
+                            </div>
+                        </div>
+
+                    </form>
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
 
     <div class="container col-lg-12">
-        <div>
+        <div class="card-columns">
+            <div class="card  " *ngFor="let lapiz of lapices; let i = index">
+                <img class="card-img-top img-fluid" src="/assets/img/sinfoto.png" alt="">
+                <div class="card-block">
+                    <h4 class="card-title text-center">{{lapiz.producto.nombre}}</h4>
+                    <p class="card-text text-center">Color: {{lapiz.color}}</p>
+                    <p class="card-text text-center"> Precio: $ {{lapiz.producto.precio}}</p>
+                    <p class="card-text text-center"> Tipo de Punta: {{lapiz.tipopunta.nombre}}</p>
+
+                    <button type="button" class="btn btn-outline-primary btn-block" (click)="verLapiz(i)">Ver Mas</button>
+                </div>
+
+            </div>
 
 
         </div>

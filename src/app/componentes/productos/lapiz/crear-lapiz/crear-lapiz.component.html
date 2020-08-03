@@ -1,0 +1,50 @@
+<div class="container mt-5 text-center">
+
+    <div class="card">
+        <div class="card-body">
+
+            <h1>Crear Lápiz</h1>
+
+            <form class="form-signin " (ngSubmit)="guardar(l)" #l="ngForm">
+                <div class="form-group">
+                    <label for="">Color:</label>
+                    <input class="form-control" [(ngModel)]="lapiz.color" #color="ngModel" name="color" id="color">
+                </div>
+                <div class="form-group">
+                    <label for="">RGB:</label>
+                    <input class="form-control" [(ngModel)]="lapiz.color_rgb" #color_rgb="ngModel" name="color_rgb" id="rgb">
+                </div>
+                <div class="form-group">
+                    <label for="">Descripción:</label>
+                    <input class="form-control" [(ngModel)]="lapiz.descripcion" #descripcion="ngModel" name="descripcion" id="descripcion">
+                </div>
+                <div class="form-group">
+                    <label for=""> Tipo de Producto:</label>
+                    <select class="form-control" [(ngModel)]="lapiz.Producto_id" #Producto_id="ngModel" name="Producto_id" id="ProdutoID">
+                      <option *ngFor="let producto of productos" [value]="producto.id">{{ producto.nombre }}</option>
+
+
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label for="">Tipo de Punta:</label>
+                    <select class="form-control" [(ngModel)]="lapiz.TipoPunta_id" #TipoPunta_id="ngModel" name="TipoPuntaId_id" id="TipoPuntaID">
+                      <option value=1>Punta Fina</option>
+                      <option value=2>Punta Gruesa</option>
+                    </select>
+
+                </div>
+
+                <div>
+                    <button class="btn btn-primary" type="submit"> Guardar</button>
+                </div>
+            </form>
+
+
+
+        </div>
+    </div>
+
+
+</div>

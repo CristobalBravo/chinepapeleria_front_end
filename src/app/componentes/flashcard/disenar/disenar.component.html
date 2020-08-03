@@ -33,9 +33,24 @@
                                 <br>
                             </div>
                         </div>
-                        <div class="boton">
-                            <button class="boton" type="submit">Guardar</button>
+                        <div class="row">
+                            <div class="col">
+                                <label class="col-form-label col-sm-5">Color Rgb</label>
+                                <input [(ngModel)]="configuracionFlashCard.colorrgb" #colorrgb="ngModel" name="colorrgb" class="form-control" placeholder="ingrese el color rgb" type="text">
+                                <br>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="col-form-label col-sm-5">Cantidad</label>
+                                <input [(ngModel)]="detallePedido.cantidad" #cantidad="ngModel" name="cantidad" class="form-control" placeholder="ingrese la cantidad del producto" type="number">
+                                <br>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-success" type="submit">Guardar</button>
+                        </div>
+                        <br>
                     </form>
                 </div>
             </div>

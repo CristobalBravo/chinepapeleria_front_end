@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LapizModel } from '../../../Models/lapiz.model';
+
 import { ListarLapizService } from '../../../services/Lapiz/listar-lapiz.service';
-import { ProductoModel } from '../../../Models/producto.models';
-import { ListarProductoService } from '../../../services/Producto/listar-producto.service';
+
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { DetallePedidoModel } from '../../../Models/detallePedido.model';

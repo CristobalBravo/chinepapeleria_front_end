@@ -30,8 +30,8 @@
                 <div class="form-group">
                     <label for="">Tipo de Punta:</label>
                     <select class="form-control" [(ngModel)]="lapiz.TipoPunta_id" #TipoPunta_id="ngModel" name="TipoPuntaId_id" id="TipoPuntaID">
-                      <option value=1>Punta Fina</option>
-                      <option value=2>Punta Gruesa</option>
+                      <option *ngFor="let punta of tipoPuntas" [value]="punta.id">{{ punta.nombre }}</option>
+
                     </select>
 
                 </div>

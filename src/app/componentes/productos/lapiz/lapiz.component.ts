@@ -4,6 +4,10 @@ import { ListarLapizService } from '../../../services/Lapiz/listar-lapiz.service
 import { ProductoModel } from '../../../Models/producto.models';
 import { ListarProductoService } from '../../../services/Producto/listar-producto.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { DetallePedidoModel } from '../../../Models/detallePedido.model';
+import { DetallePedidoService } from '../../../services/detalle-pedido.service';
+import { PedidoService } from '../../../services/pedido.service';
 
 @Component({
   selector: 'app-lapiz',
@@ -13,9 +17,12 @@ import { Router } from '@angular/router';
 export class LapizComponent implements OnInit {
 
   lapices:any[]=[];
+  detallePedido= new DetallePedidoModel();
+  lapiz:any;
 
 
-  constructor(private listarlapizService:ListarLapizService,private router:Router) { }
+  constructor(private listarlapizService:ListarLapizService,private router:Router,
+    private detallePedidoService:DetallePedidoService, private pedidoService:PedidoService) { }
 
   ngOnInit(): void {
 
@@ -23,9 +30,25 @@ export class LapizComponent implements OnInit {
 
   }
 
+  verLapiz(idx:number){
+    console.log(idx);
+    this.lapiz=this.lapices[idx];
+    this.router.navigate(['detalle',this.lapiz.id]);
+  }
+
+ guardar(form:NgForm){
+
+  if(form.invalid){
+    console.log('formulario invalido');
+  }
+
+  }
 
 
 
 
 
-}
+ }
+
+
+

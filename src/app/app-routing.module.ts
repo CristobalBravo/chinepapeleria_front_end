@@ -9,6 +9,7 @@ import { CrearUsuarioComponent } from './componentes/usuario/crear-usuario/crear
 import { PerfilComponent } from './componentes/Perfil/perfil/perfil.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CrearLapizComponent } from './componentes/productos/lapiz/crear-lapiz/crear-lapiz.component';
+import { DetalleLapizComponent } from './componentes/productos/lapiz/detalle-lapiz/detalle-lapiz.component';
 
 
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'producto/crear', component: CrearProductoComponent, canActivate:[AuthGuard]},
   {path: 'perfil', component: PerfilComponent , canActivate: [AuthGuard]},
   {path: 'lapiz/crear', component: CrearLapizComponent, canActivate:[AuthGuard]},
+  {path: 'detalle/:id', component: DetalleLapizComponent},
   {path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

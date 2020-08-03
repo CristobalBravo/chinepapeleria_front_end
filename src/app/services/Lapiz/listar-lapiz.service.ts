@@ -13,10 +13,18 @@ export class ListarLapizService {
     this.url= global.url;
   }
 
-  all(){
-    let token = localStorage.getItem('token');
+
+  obtenerlapiz(id,token){
     let headers = new HttpHeaders().set('Authorization',token);
-    return this.http.post(this.url+'lapiz/all', null,{headers:headers} ).pipe(map(this.crearArreglo));
+
+    console.log(this.http.post(this.url+'lapiz/buscar',id,{headers:headers}));
+    return this.http.post(this.url+'lapiz/buscar',id,{headers:headers});
+
+  }
+
+  all(){
+
+    return this.http.post(this.url+'lapiz/all', null ).pipe(map(this.crearArreglo));
   }
   private crearArreglo(lapiz:object){
     const LapizArray: any[]=[];

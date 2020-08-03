@@ -17,6 +17,7 @@ import { PerfilComponent } from './componentes/Perfil/perfil/perfil.component';
 import { CrearLapizComponent } from './componentes/productos/lapiz/crear-lapiz/crear-lapiz.component';
 
 import { CrearProductoComponent } from './componentes/productos/crear-producto/crear-producto.component';
+import { DetalleLapizComponent } from './componentes/productos/lapiz/detalle-lapiz/detalle-lapiz.component';
 
 
 
@@ -33,6 +34,7 @@ import { CrearProductoComponent } from './componentes/productos/crear-producto/c
     PerfilComponent,
     CrearLapizComponent,
     CrearProductoComponent,
+    DetalleLapizComponent,
 
   ],
   imports: [

@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <h1> Producto: {{producto.nombre}}</h1>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-fluid" src=" /assets/img/sinfoto.png " alt="">
+        </div>
+        <div class="col-md-8">
+            <label>Color: {{lapiz.color}}</label> <br>
+            <label>Descripción: {{lapiz.descripcion}}</label><br>
+            <label>Tipo Punta: {{tipoPunta.nombre}}</label><br>
+            <label> Detalle de Punta: {{tipoPunta.descripcion}}</label><br>
+            <label>Precio Unitario: $ {{producto.precio}}</label> <br>
+            <form class="form-group" (ngSubmit)="guardar(f)" #f="ngForm">
+                <label for="">Cantidad:</label>
+                <input type="number" [(ngModel)]="detallePedido.cantidad" name="cantidad"  #cantidad="ngModel" class=" text-center" name="cantidad" placeholder="Cantidad" id="cantidad"><br>
+                <button class="btn btn-outline-info" type="submit" class="btn btn-primary">Comprar</button>
+
+            </form>
+
+
+        </div>
+    </div>
+</div>

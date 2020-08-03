@@ -15,6 +15,9 @@ import { FlashcardComponent } from './componentes/flashcard/flashcard.component'
 import { CrearUsuarioComponent } from './componentes/usuario/crear-usuario/crear-usuario.component';
 import { PerfilComponent } from './componentes/Perfil/perfil/perfil.component';
 import { CrearProductoComponent } from './componentes/productos/crear-producto/crear-producto.component';
+import { CrearFlashCardComponent } from './componentes/productos/FlashCard/crear-flash-card/crear-flash-card.component';
+import { DisenarComponent } from './componentes/flashcard/disenar/disenar.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { CrearProductoComponent } from './componentes/productos/crear-producto/c
     FlashcardComponent,
     CrearUsuarioComponent,
     PerfilComponent,
-    CrearProductoComponent
+    CrearProductoComponent,
+    CrearFlashCardComponent,
+    DisenarComponent
   ],
   imports: [
     BrowserModule,

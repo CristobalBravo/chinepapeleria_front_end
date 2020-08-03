@@ -1,0 +1,45 @@
+<hr color="#ff0080">
+<div class="container">
+    <h1 style="color: #ff0080;">Diseña Tu Flash Cards</h1>
+    <hr color="#ff0080">
+    <div class="container col-lg-12">
+        <div class="card border">
+            <img class="card-img-top img-fluid" src="/assets/img/sinfoto.png" alt="">
+            <div class="card-block">
+                <h4 class="card-title text-center">{{flashcard.producto.nombre}}</h4>
+                <p class="card-text text-center"> Precio: $ {{flashcard.producto.precio}}</p>
+                <p class="card-text text-center"> Cantidad de Hojas: {{flashcard.cantidad_hojas}}</p>
+                <p class="card-text text-center"> Largo: {{flashcard.largo}} {{flashcard.unidad_medida}}</p>
+                <p class="card-text text-center"> Ancho: {{flashcard.ancho}} {{flashcard.unidad_medida}}</p>
+            </div>
+            <br>
+            <div class="container mt-5">
+                <div class="card" style="color: #ff0080;">
+                    <br>
+                    <form (ngSubmit)="guardar(l)" #l="ngForm">
+                        <div class="row">
+                            <div class="col">
+                                <label class="col-form-label col-sm-5">Tipo Linea</label>
+                                <div class="col-sm-5"></div>
+                                <select class="form-control" [(ngModel)]="configuracionFlashCard.TipoFlashCard_id" #TipoFlashCard_id="ngModel" name="TipoFlashCard_id">
+                                <option  *ngFor="let tipoLinea of tipoLineas,let i=index;" [value]="tipoLinea.id">{{tipoLinea.nombre}}</option>
+                              </select>
+                            </div>
+                            <div class="col">
+                                <label class="col-form-label col-sm-5">Nombre</label>
+                                <input [(ngModel)]="diseno.nombre" #nombre="ngModel" name="nombre" class="form-control" placeholder="Escribe el nombre de tu Diseño" type="text">
+                                <label class="col-form-label col-sm-5">Diseño</label>
+                                <input [(ngModel)]="diseno.path" #path="ngModel" name="path" type="text" class="form-control" placeholder="Sube tu diseño">
+                                <br>
+                            </div>
+                        </div>
+                        <div class="boton">
+                            <button class="boton" type="submit">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

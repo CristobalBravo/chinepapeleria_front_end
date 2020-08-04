@@ -25,7 +25,7 @@ export class LoginService {
   }
 
   logearUsuario(login: LoginModel): Observable<any> {
-    return this.http.post(this.url + 'login', login).pipe(
+    return this.http.post(this.url + 'usuario/login', login).pipe(
       map((resp: string) => {
         resp = JSON.stringify(resp);
         let data = JSON.parse(resp);

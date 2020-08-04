@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(){
     if(localStorage.getItem('email')){
       this.login.email = localStorage.getItem('email');
-      this.recordarme=true;
+      this.recordarme = true;
     }
   }
 
@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
       text: 'Espere por favor'
     });
     Swal.showLoading();
-
 
 
     console.log(this.login);

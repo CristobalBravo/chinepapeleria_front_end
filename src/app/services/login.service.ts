@@ -20,18 +20,24 @@ export class LoginService {
     this.leerToken();
   }
 
-  logearUsuario(login): Observable<any> {
+  logearUsuario(login: LoginModel): Observable<any> {
     return this.http.post(this.url + 'login', login).pipe(
       map((resp: string) => {
-        this.guardarToken(resp);
-        return resp;
+        resp = JSON.stringify(resp);
+        let data = JSON.parse(resp);
+        if (data.token !== undefined){
+          let tkn: string = data.token;
+          this.guardarToken(tkn, login.email);
+        }
+        return data;
       }));
   }
 
 
-  private guardarToken(token: string) {
+  private guardarToken(token: string, email: string) {
     this.userToken = token;
     localStorage.setItem('token', token);
+    localStorage.setItem('email', email);
   }
 
   leerToken() {
@@ -61,7 +67,7 @@ export class LoginService {
   }
 
   estaAutenticado(): boolean {
-    return localStorage.getItem('token') != null && localStorage.getItem('token').length > 2;
+    return localStorage.getItem('token') != null && localStorage.getItem('token') != undefined && localStorage.getItem('token').length > 2;
   }
 
 }

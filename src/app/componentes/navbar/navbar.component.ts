@@ -9,9 +9,23 @@ import { LoginService } from '../../services/login.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public login: LoginService) { }
+
+  constructor(public login: LoginService) {
+
+  }
 
   ngOnInit(): void {
+
   }
+
+
+
+
+
+
+
+
+
+
 
 }

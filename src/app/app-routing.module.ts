@@ -13,6 +13,7 @@ import { DisenarComponent } from './componentes/flashcard/disenar/disenar.compon
 import { AuthGuard } from './guards/auth.guard';
 import { CrearLapizComponent } from './componentes/productos/lapiz/crear-lapiz/crear-lapiz.component';
 import { DetalleLapizComponent } from './componentes/productos/lapiz/detalle-lapiz/detalle-lapiz.component';
+import { ConfiguracionComponent } from './componentes/usuario/configuracion/configuracion.component';
 
 
 
@@ -24,10 +25,11 @@ const routes: Routes = [
   {path: 'flashcard/diseñar/:id', component: DisenarComponent},
   {path: 'registrar', component: CrearUsuarioComponent},
   {path: 'producto/crear', component: CrearProductoComponent, canActivate:[AuthGuard]},
-  {path: 'flashcard/crear', component: CrearFlashCardComponent, canActivate:[AuthGuard]},
+  {path: 'configuracion/flashcard/crear', component: CrearFlashCardComponent, canActivate:[AuthGuard]},
   {path: 'perfil', component: PerfilComponent , canActivate: [AuthGuard]},
-  {path: 'lapiz/crear', component: CrearLapizComponent, canActivate:[AuthGuard]},
+  {path: 'configuracion/lapiz/crear', component: CrearLapizComponent, canActivate:[AuthGuard]},
   {path: 'detalle/:id', component: DetalleLapizComponent},
+  {path: 'configuracion', component: ConfiguracionComponent,canActivate:[AuthGuard]},
   {path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

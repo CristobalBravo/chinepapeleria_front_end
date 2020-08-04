@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginModel } from '../Models/login.models';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { global } from './global';
 
 
 
@@ -13,15 +14,18 @@ import { Router } from '@angular/router';
 export class LoginService {
 
   userToken: string;
+  isAdmin:boolean=false;
 
-  private url = 'http://localhost:8000/api/usuario/';
+  url:string;
 
-  constructor(private http: HttpClient, private router: Router) {
+
+  constructor(private http: HttpClient, private router: Router ) {
     this.leerToken();
+    this.url= global.url;
   }
 
   logearUsuario(login): Observable<any> {
-    return this.http.post(this.url + 'login', login).pipe(
+    return this.http.post(this.url + 'usuario/login', login).pipe(
       map((resp: string) => {
         this.guardarToken(resp);
         return resp;
@@ -63,5 +67,7 @@ export class LoginService {
   estaAutenticado(): boolean {
     return localStorage.getItem('token') != null && localStorage.getItem('token').length > 2;
   }
+
+
 
 }

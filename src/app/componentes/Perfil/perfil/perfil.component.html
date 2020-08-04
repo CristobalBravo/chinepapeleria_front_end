@@ -1,6 +1,10 @@
 <div class="m-5">
     <h1>Perfil de Usuario</h1>
     <hr>
+    <div *ngIf="isAdmin">
+        <button routerLink="/configuracion" class="btn btn-outline-danger">Configuracion</button>
+    </div>
 
-    <button class="btn btn-outline-danger" (click)="salir()">Cerrar Sesión</button>
+
+
 </div>

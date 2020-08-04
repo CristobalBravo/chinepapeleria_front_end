@@ -10,10 +10,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-
-  constructor(private loginService:LoginService, private router:Router) { }
+  isAdmin:boolean;
+  constructor(private loginService:LoginService, private router:Router) {
+    this.isAdmin=false;
+  }
 
   ngOnInit(): void {
+    this.loginService.admin().subscribe(resp=>{
+      this.isAdmin=resp;
+    })
   }
 
   salir(){

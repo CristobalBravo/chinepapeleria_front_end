@@ -68,6 +68,15 @@ export class LoginService {
     return localStorage.getItem('token') != null && localStorage.getItem('token').length > 2;
   }
 
+  admin(): Observable<any>{
 
+    let respuesta:boolean=false;
+      let token = localStorage.getItem('token');
+      let headers = new HttpHeaders().set('Authorization',token);
+      return this.http.post(this.url + 'usuario/admin', null, {headers:headers}).pipe(
+        map((resp: boolean) => {
+          return resp;
+        }));
+   }
 
 }

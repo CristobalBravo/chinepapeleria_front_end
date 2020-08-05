@@ -28,6 +28,7 @@
             <button class="btn btn-outline my-2 my-sm-0" style="border-color: #ff0080; color: #ff0080;" [routerLink]="['login']" type="submit">Iniciar Sesión</button>
         </form>
         <form class="form-inline my-2 my-lg-0" *ngIf="login.estaAutenticado()">
+            <i class="fa fa-shopping-cart" aria-hidden="true" style="color: #ff0080;" [routerLink]="['pedido/detalle']"></i>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" style="color: #ff0080;" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -21,11 +21,20 @@ export class DetallePedidoService {
     }
 
 
+    obtenerPedido(token){
+      let headers= new HttpHeaders().set('Authorization',token);
+      return this.http.post(this.url+'usuario/detallePedido',null,{headers:headers}).pipe(map(this.crearArreglo));
+
+    }
+
+
     all(){
       let token = localStorage.getItem('token');
       let headers = new HttpHeaders().set('Authorization',token);
       return this.http.post(this.url+'detallePedido/all', null,{headers:headers} ).pipe(map(this.crearArreglo));
     }
+
+
     private crearArreglo(detallePedido:object){
       const detallePedidoArray: any[]=[];
       if(detallePedido === null){return [];}

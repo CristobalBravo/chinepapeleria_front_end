@@ -19,6 +19,8 @@ export class PedidoService {
     return this.http.post(this.url+'pedido/crear',pedido,{headers:headers});
     }
 
+
+
     all(){
       let token = localStorage.getItem('token');
       let headers = new HttpHeaders().set('Authorization',token);

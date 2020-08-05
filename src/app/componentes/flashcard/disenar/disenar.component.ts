@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FlashCardService } from '../../../services/flash-card.service';
 import { FlashCardModel } from '../../../Models/flashcard.models';
 import { TipoLineaService } from '../../../services/tipo-linea.service';
@@ -28,7 +28,7 @@ export class DisenarComponent implements OnInit {
   constructor(private route:ActivatedRoute, private flashCardService:FlashCardService,
     private tipoLineService:TipoLineaService, private pedioService:PedidoService,
     private detallePedidoServicio:DetallePedidoService, private disenoService:DiseñoService,
-    private configuracionFlashCardService:ConfiguracionFlashCardService) {
+    private configuracionFlashCardService:ConfiguracionFlashCardService, private router:Router) {
      }
 
   ngOnInit(): void {
@@ -78,6 +78,7 @@ export class DisenarComponent implements OnInit {
           })
         })
       })
+      this.router.navigateByUrl('pedido/detalle');
       console.log(this.diseno);
       console.log(this.configuracionFlashCard);
     }

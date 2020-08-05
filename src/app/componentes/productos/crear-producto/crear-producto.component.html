@@ -4,51 +4,55 @@
         <h1 class="text-center">Crea Un Producto</h1>
         <hr>
         <br>
-        <div class="container">
-            <form class="form-signin" (ngSubmit)="guardar(l)" #l="ngForm">
+        <div class="card-body">
+            <form class="form-signin" #l="ngForm">
                 <div class="form-group row">
-                    <label for="nombre" class="col-form-label col-sm-1">Nombre</label>
-                    <div class="col-sm-8">
-                        <input type="text" [(ngModel)]="producto.nombre" #nombre="ngModel" name="nombre" id="nombre" class="form-control" placeholder="Ingrese El Nombre Del Producto" tabindex="1">
+                    <label class="col-form-label col-sm-3">Nombre</label>
+                    <div class="col-sm-9">
+                        <input required type="text" [(ngModel)]="producto.nombre" #nombre="ngModel" name="nombre" id="nombre" class="form-control" placeholder="Ingrese El Nombre Del Producto" tabindex="1">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-1">Precio</label>
-                    <div class="col-sm-8">
-                        <input type="number" [(ngModel)]="producto.precio" #precio="ngModel" name="precio" class="form-control" placeholder="Ingrese El Precio Del Producto">
+                    <label class="col-form-label col-sm-3">Precio</label>
+                    <div class="col-sm-9">
+                        <input required type="number" [(ngModel)]="producto.precio" #precio="ngModel" name="precio" class="form-control" placeholder="Ingrese El Precio Del Producto">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-1">Stock</label>
-                    <div class="col-sm-8">
-                        <input type="number" [(ngModel)]="producto.stock" #stock="ngModel" name="stock" class="form-control" placeholder="Ingrese La Cantidad Total Del Producto">
+                    <label class="col-form-label col-sm-3">Stock</label>
+                    <div class="col-sm-9">
+                        <input required type="number" [(ngModel)]="producto.stock" #stock="ngModel" name="stock" class="form-control" placeholder="Ingrese La Cantidad Total Del Producto">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-1">Imagen</label>
-                    <div class="col-sm-8">
-                        <input type="text" [(ngModel)]="producto.img" #imagen="ngModel" name="imagen" class="form-control" placeholder="Ingrese La Imagen Del Producto">
+                    <label class="col-form-label col-sm-3">Imagen</label>
+                    <div class="col-sm-9">
+                        <input required type="file" #fileupload (change)="fileChange(fileupload.files)" name="imagen" class="form-control-file" placeholder="Ingrese La Imagen Del Producto">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-2">Ingrese La Categoria</label>
-                    <div class="col-sm-7">
-                        <select [(ngModel)]="producto.Categoria_id" #Categoria_id="ngModel" name="Categoria_id" class="form-control">
-                        <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nombre }}</option>
+                    <label class="col-form-label col-sm-3">Ingrese La Categoria</label>
+                    <div class="col-sm-9">
+                        <select required [(ngModel)]="producto.Categoria_id" #Categoria_id="ngModel" name="Categoria_id" class="form-control">
+                          <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nombre }}</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-2">Ingrese La Marca</label>
-                    <div class="col-sm-7">
-                        <select [(ngModel)]="producto.Marca_id" #Marca_id="ngModel" name="Marca_id" class="form-control">
+                    <label class="col-form-label col-sm-3">Ingrese La Marca</label>
+                    <div class="col-sm-9">
+                        <select required [(ngModel)]="producto.Marca_id" #Marca_id="ngModel" name="Marca_id" class="form-control">
                           <option *ngFor="let marca of marcas" [value]="marca.id">{{ marca.nombre }}</option>
                         </select>
                     </div>
                 </div>
-                <button class="btn btn-primary" type="submit">Guardar</button>
             </form>
+
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary" (click)="guardar(l)">Guardar</button>
+          <button class="btn btn-secondary" style="margin-left: 20px;" (click)="borrar(l)">Limpiar Formulario</button>
         </div>
     </div>
 </div>

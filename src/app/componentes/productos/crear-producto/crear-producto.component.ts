@@ -12,20 +12,26 @@ import { CrearProductoService } from '../../../services/Producto/crear-producto.
 })
 export class CrearProductoComponent implements OnInit {
 
-  producto= new ProductoModel();
+  producto = new ProductoModel();
 
-  marcas: any[]=[];
-  categorias: any[]=[];
+  marcas: any[] = [];
+  categorias: any[] = [];
 
-  constructor(private categoriaService:CategoriaService, private marcaService:MarcaService, private crearProductoService:CrearProductoService) { }
+  constructor(private categoriaService: CategoriaService,
+    private marcaService: MarcaService,
+    private crearProductoService: CrearProductoService) { }
 
   ngOnInit(): void {
-    this.categoriaService.all().subscribe(resp=>{
-      this.categorias=resp[2];
+    this.categoriaService.all().subscribe(resp => {
+      this.categorias = resp[2];
     });
-    this.marcaService.all().subscribe(resp=>{
-      this.marcas=resp[2];
-    })
+    this.marcaService.all().subscribe(resp => {
+      this.marcas = resp[2];
+    });
+  }
+
+  fileChange(files: any) {
+    this.producto.img = files[0];
   }
 
   public guardar(form: NgForm){
@@ -34,9 +40,27 @@ export class CrearProductoComponent implements OnInit {
       return;
     }
     console.log(this.producto);
-    this.crearProductoService.crearProducto(this.producto,localStorage.getItem('token')).subscribe(resp=>{
+    /* Para enviar información y archivos se hace con un FormData() (es una de las formas) */
+    var formdata = new FormData();
+
+    formdata.append('nombre', this.producto.nombre);
+    formdata.append('stock', this.producto.stock.toString());
+    formdata.append('precio', this.producto.precio.toString());
+    formdata.append('Categoria_id', this.producto.Categoria_id.toString());
+    formdata.append('Marca_id', this.producto.Marca_id.toString());
+    /** IMAGEN - ARCHIVO */
+    formdata.append('img', this.producto.img);
+
+    this.crearProductoService.crearProducto(formdata, localStorage.getItem('token')).subscribe(resp => {
       console.log(resp.status);
+      if (resp.status === 'success'){
+        form.resetForm();
+      }
     });
   }
 
+  public borrar(form: NgForm) {
+    this.producto = new ProductoModel();
+    form.resetForm();
+  }
 }

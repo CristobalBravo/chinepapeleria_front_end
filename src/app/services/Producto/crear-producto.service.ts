@@ -7,13 +7,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class CrearProductoService {
 
-  private url='http://localhost:8000/api/producto/';
+  private url = 'http://localhost:8000/api/producto/';
 
   constructor(private http:HttpClient) { }
 
-  crearProducto(producto,token): Observable<any>{
-
-    let headers = new HttpHeaders().set('Authorization',token);
-    return this.http.post(this.url+'crear',producto, {headers:headers} );
-    }
+  crearProducto(producto, token: string): Observable<any>{
+    let strcontent = 'application/json';
+    let header = new HttpHeaders().set('Authorization', token).set('Accept', strcontent);
+    let urlws = this.url + 'crear';
+    return this.http.post(urlws, producto, {headers: header});
+  }
 }

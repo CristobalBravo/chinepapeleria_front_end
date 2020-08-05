@@ -21,6 +21,7 @@ import { CrearFlashCardComponent } from './componentes/productos/FlashCard/crear
 import { DisenarComponent } from './componentes/flashcard/disenar/disenar.component';
 import { DetalleLapizComponent } from './componentes/productos/lapiz/detalle-lapiz/detalle-lapiz.component';
 import { ConfiguracionComponent } from './componentes/usuario/configuracion/configuracion.component';
+import { PedidoComponent } from './componentes/pedido/pedido.component';
 
 
 
@@ -42,6 +43,7 @@ import { ConfiguracionComponent } from './componentes/usuario/configuracion/conf
     CrearProductoComponent,
     DetalleLapizComponent,
     ConfiguracionComponent,
+    PedidoComponent,
 
   ],
   imports: [

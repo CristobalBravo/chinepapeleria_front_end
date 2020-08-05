@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ListarLapizService } from '../../../../services/Lapiz/listar-lapiz.service';
 import { LapizModel } from '../../../../Models/lapiz.model';
 import { DetallePedidoModel } from 'src/app/Models/detallePedido.model';
@@ -21,7 +21,8 @@ export class DetalleLapizComponent implements OnInit {
  detallePedido = new DetallePedidoModel();
 
   constructor( private activatedRoute: ActivatedRoute, private listarLapizService:ListarLapizService,
-    private pedidoService: PedidoService, private detallePedidoServicio:DetallePedidoService) {
+    private pedidoService: PedidoService, private detallePedidoServicio:DetallePedidoService,
+    private router:Router ) {
 
   }
 
@@ -75,7 +76,7 @@ export class DetalleLapizComponent implements OnInit {
           icon: 'success',
           title: 'Pedido creado con éxito.',
         });
-
+          this.router.navigateByUrl('pedido/detalle');
         return;
       }
     }

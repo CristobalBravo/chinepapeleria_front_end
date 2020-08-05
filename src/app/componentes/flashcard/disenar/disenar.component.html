@@ -34,7 +34,7 @@
                                 <option  *ngFor="let tipoLinea of tipoLineas,let i=index;" [value]="tipoLinea.id">{{tipoLinea.nombre}}</option>
                               </select>
                                 <label class="col-form-label col-sm-5">Color Rgb</label>
-                                <input [(ngModel)]="configuracionFlashCard.colorrgb" #colorrgb="ngModel" name="colorrgb" class="form-control" placeholder="ingrese el color rgb" type="text">
+                                <input [(ngModel)]="configuracionFlashCard.colorrgb" #colorrgb="ngModel" name="colorrgb" class="form-control" placeholder="ingrese el color rgb" type="color">
                             </div>
                             <div class="col">
                                 <label class="col-form-label col-sm-5">Nombre</label>

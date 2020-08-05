@@ -1,0 +1,36 @@
+<div class="container mt-5">
+
+    <hr color="#ff0080;">
+    <h1 style="color: #ff0080;">Mis Pedidos</h1>
+    <hr color="#ff0080">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio Unitario</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Precio Total</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let detalle of detallePedidos let i =index">
+                <td>{{productoOfDetalle[i].nombre}}</td>
+                <td>${{productoOfDetalle[i].precio}}</td>
+                <td>{{detalle.cantidad}}</td>
+                <td>{{pedidoOfDetalle[i].estado_pedido.nombre}}</td>
+                <td>${{detalle.precio}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <hr color="#ff0080">
+    <label>Total Pedido: </label>
+    <label>$ {{total}}</label>
+
+
+
+</div>

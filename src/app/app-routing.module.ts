@@ -14,6 +14,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { CrearLapizComponent } from './componentes/productos/lapiz/crear-lapiz/crear-lapiz.component';
 import { DetalleLapizComponent } from './componentes/productos/lapiz/detalle-lapiz/detalle-lapiz.component';
 import { ConfiguracionComponent } from './componentes/usuario/configuracion/configuracion.component';
+import { PedidoComponent } from './componentes/pedido/pedido.component';
 
 
 
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: 'configuracion/lapiz/crear', component: CrearLapizComponent, canActivate:[AuthGuard]},
   {path: 'detalle/:id', component: DetalleLapizComponent},
   {path: 'configuracion', component: ConfiguracionComponent,canActivate:[AuthGuard]},
+  {path: 'pedido/detalle', component: PedidoComponent ,canActivate:[AuthGuard]},
   {path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

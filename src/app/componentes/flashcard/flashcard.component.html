@@ -5,7 +5,7 @@
     <div class="container col-lg-12">
         <div class="card-columns">
             <div class="card" *ngFor="let flashCard of flashCards; let i = index">
-                <img class="card-img-top img-fluid" src="/assets/img/sinfoto.png" alt="">
+                <img class="card-img-top img-fluid" src="{{ 'http://127.0.0.1:8000/'+flashCard.producto.img }}" alt="">
                 <div class="card-block">
                     <h4 class="card-title text-center">{{flashCard.producto.nombre}}</h4>
                     <p class="card-text text-center"> Precio: $ {{flashCard.producto.precio}}</p>

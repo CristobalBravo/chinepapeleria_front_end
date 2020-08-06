@@ -5,43 +5,43 @@
         <hr>
         <br>
         <div class="container">
-            <form class="form-signin" (ngSubmit)="guardar(l)" #l="ngForm">
+            <form class="form-signin " (ngSubmit)="guardar(l)" #l="ngForm">
                 <div class="form-group row">
                     <label class="col-form-label col-sm-3">Seleccione El Producto</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <select [(ngModel)]="flashcard.Producto_id" #Producto_id="ngModel" name="Producto_id" class="form-control">
                            <option *ngFor="let producto of productos" [value]="producto.id">{{ producto.nombre }}</option>
                     </select>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-2">Cantidad De Hojas</label>
-                    <div class="col-sm-7">
+                    <label class="col-form-label col-sm-3">Cantidad De Hojas</label>
+                    <div class="col-sm-4">
                         <input [(ngModel)]="flashcard.cantidad_hojas" #cantidad_hojas="ngModel" name="cantidad_hojas" type="number" class="form-control" placeholder="Ingrese la cantidad de hojas">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-1">Ancho</label>
-                    <div class="col-sm-7">
+                    <label class="col-form-label col-sm-3">Ancho</label>
+                    <div class="col-sm-4">
                         <input [(ngModel)]="flashcard.ancho" #ancho="ngModel" name="ancho" type="number" class="form-control" placeholder="Ingrese el ancho">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-1">Alto</label>
-                    <div class="col-sm-7">
+                    <label class="col-form-label col-sm-3">Alto</label>
+                    <div class="col-sm-4">
                         <input [(ngModel)]="flashcard.alto" #alto="ngModel" name="alto" type="number" class="form-control" placeholder="Ingrese el alto">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-1">Largo</label>
-                    <div class="col-sm-7">
+                    <label class="col-form-label col-sm-3">Largo</label>
+                    <div class="col-sm-4">
                         <input [(ngModel)]="flashcard.largo" #largo="ngModel" name="largo" type="number" class="form-control" placeholder="Ingrese el largo">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-2">Ingrese La Unidad De Medida</label>
-                    <div class="col-sm-7 ">
+                    <label class="col-form-label col-sm-3">Ingrese La Unidad De Medida</label>
+                    <div class="col-sm-4 ">
                         <select [(ngModel)]="flashcard.unidad_medida" #unidad_medida="ngModel" name="unidad_medida" class="form-control " id="exampleFormControlSelect1 ">
                         <option value="Centimetros" >Centimetros</option>
                         <option value="Metros">Metros</option>
@@ -49,12 +49,16 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-2">Descripcion</label>
-                    <div class="col-sm-7">
+                    <label class="col-form-label col-sm-3">Descripcion</label>
+                    <div class="col-sm-4">
                         <input [(ngModel)]="flashcard.descripcion" #descripcion="ngModel" name="descripcion" type="text" class="form-control" placeholder="Ingrese La Descripcion de la flash card">
                     </div>
                 </div>
-                <button class="btn btn-primary align-bottom" type="submit">Guardar</button>
+                <div>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Guardar</button>
+                </div>
+                <br>
+
             </form>
         </div>
     </div>

@@ -28,8 +28,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Instalacion
 
--Ejecucion del comando npm install para las libreriras de node
--Ejecucion del comando npm install sweetalert2
--Ejecucion del comando ng serve -o
+- Ejecucion del comando npm install para las libreriras de node
+- Ejecucion del comando npm install sweetalert2
+- Ejecucion del comando ng serve -o
 
 

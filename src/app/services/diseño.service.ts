@@ -13,7 +13,8 @@ export class DiseñoService {
     this.url=global.url;
   }
   crear(diseno,token){
-    let headers = new HttpHeaders().set('Authorization',token);
-    return this.http.post(this.url+'diseno/crear',diseno, {headers:headers} );
+    let strcontent = 'application/json';
+    let header = new HttpHeaders().set('Authorization',token).set('Accept', strcontent);
+    return this.http.post(this.url+'diseno/crear',diseno, {headers:header} );
   }
 }

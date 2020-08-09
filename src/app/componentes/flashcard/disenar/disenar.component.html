@@ -40,7 +40,7 @@
                                 <label class="col-form-label col-sm-5">Nombre</label>
                                 <input [(ngModel)]="diseno.nombre" #nombre="ngModel" name="nombre" class="form-control" placeholder="Escribe el nombre de tu Diseño" type="text">
                                 <label class="col-form-label col-sm-5">Diseño</label>
-                                <input [(ngModel)]="diseno.path" #path="ngModel" name="path" type="text" class="form-control" placeholder="Sube tu diseño">
+                                <input required #fileupload (change)="fileChange(fileupload.files)" type="file" class="form-control" placeholder="Sube tu diseño">
                                 <br>
                             </div>
                             <div class="col">

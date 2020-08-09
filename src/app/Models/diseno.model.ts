@@ -1,7 +1,7 @@
 export class DisenoModel{
   id:string;
   nombre:string;
-  path:string;
+  image:string;
   constructor(){
 
   }

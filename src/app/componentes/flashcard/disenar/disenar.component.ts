@@ -34,14 +34,15 @@ export class DisenarComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(id=>{
       this.flashCardService.buscarPorId(id).subscribe((resp:any)=>{
-        console.log(resp.flashCard);
         this.flashcard=resp.flashCard;
-        console.log(this.flashcard);
       });
     });
     this.tipoLineService.all().subscribe(resp=>{
       this.tipoLineas=resp[2];
     });
+  }
+  fileChange(files: any) {
+    this.diseno.image = files[0];
   }
 
   guardar(form:NgForm){
@@ -51,12 +52,18 @@ export class DisenarComponent implements OnInit {
 
     if (localStorage.getItem('token')!= null){
       //creo un diseño
-      this.disenoService.crear(this.diseno,localStorage.getItem('token')).subscribe((resp:any)=>{
-        this.idDiseno=resp.diseño.id;
+    var formdata = new FormData();
+    formdata.append('nombre', this.diseno.nombre);
+    /** IMAGEN - ARCHIVO */
+    formdata.append('image', this.diseno.image);
+      this.disenoService.crear(formdata,localStorage.getItem('token')).subscribe((resp:any)=>{
+        if(resp.status==='success'){
+          this.idDiseno=resp.data.id;
+          form.resetForm();
+        }
       })
       //creo un pedido
       this.pedioService.crearPedido(null, localStorage.getItem('token')).subscribe((resp:any)=>{
-        console.log(resp.pedido);
         let idPedido=resp.pedido.id;
         let idProducto=this.flashcard.producto.id;
         let precioProducto= this.flashcard.producto.precio;
@@ -66,7 +73,6 @@ export class DisenarComponent implements OnInit {
         this.detallePedido.precio= precioDetallePedido.toString();
         //creo un detalle del pedido
         this.detallePedidoServicio.crearPedido(this.detallePedido,localStorage.getItem('token')).subscribe((resp:any)=>{
-          console.log(resp);
           let idDetallePedido=resp.detallePedido.id;
           let idFlashcard=this.flashcard.id;
           this.configuracionFlashCard.DetallePedido_id=idDetallePedido;
@@ -74,13 +80,11 @@ export class DisenarComponent implements OnInit {
           this.configuracionFlashCard.Diseno_id=this.idDiseno.toString();
           //creo la configuracion de la flash card
           this.configuracionFlashCardService.crear(this.configuracionFlashCard,localStorage.getItem('token')).subscribe((resp:any)=>{
-            console.log(resp.status)
           })
         })
       })
       this.router.navigateByUrl('pedido/detalle');
-      console.log(this.diseno);
-      console.log(this.configuracionFlashCard);
+
     }
   }
 

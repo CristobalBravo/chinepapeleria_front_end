@@ -3,6 +3,7 @@ import { FlashCardModel } from '../../../../Models/flashcard.models';
 import { ListarProductoService } from '../../../../services/Producto/listar-producto.service';
 import { NgForm } from '@angular/forms';
 import { FlashCardService } from '../../../../services/flash-card.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-flash-card',
@@ -12,7 +13,7 @@ import { FlashCardService } from '../../../../services/flash-card.service';
 export class CrearFlashCardComponent implements OnInit {
   flashcard = new FlashCardModel();
   productos:any[]=[];
-  constructor(private listarProductoService:ListarProductoService, private flashcardService:FlashCardService) { }
+  constructor(private listarProductoService:ListarProductoService, private flashcardService:FlashCardService, private router:Router) { }
 
   ngOnInit(): void {
     this.listarProductoService.all().subscribe(resp=>{
@@ -27,6 +28,8 @@ export class CrearFlashCardComponent implements OnInit {
     console.log(this.flashcard);
     this.flashcardService.crear(this.flashcard,localStorage.getItem('token')).subscribe((resp:any)=>{
       console.log(resp.status);
+      this.router.navigate(['/flashcard'])
+
     })
   }
 

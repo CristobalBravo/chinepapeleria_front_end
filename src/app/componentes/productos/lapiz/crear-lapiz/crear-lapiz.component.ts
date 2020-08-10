@@ -50,15 +50,20 @@ export class CrearLapizComponent implements OnInit {
       }
       (console.log(resp));
       (console.log(resp));
+
       Swal.close();
       Swal.fire({
         icon: 'success',
        title: 'Lápiz creado con éxito.',
+     }).then(resp=>{
+       if(resp.value){
+        this.router.navigate(['/lapiz']);
+       }
      });
     });
 
 
-    this.router.navigateByUrl('/lapiz');
+
 
   }
 

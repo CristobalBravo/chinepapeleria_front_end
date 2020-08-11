@@ -16,9 +16,7 @@ export class PerfilComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loginService.admin().subscribe(resp=>{
-      this.isAdmin=resp;
-    })
+    this.isAdmin = this.loginService.admin();
   }
 
   salir(){

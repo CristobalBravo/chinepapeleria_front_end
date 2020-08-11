@@ -29,13 +29,13 @@ const routes: Routes = [
   {path: 'planificador', component: ListarPlanificadorComponent},
   {path: 'flashcard/diseñar/:id', component: DisenarComponent},
   {path: 'registrar', component: CrearUsuarioComponent},
-  {path: 'producto/crear', component: CrearProductoComponent, canActivate:[AuthGuard]},
-  {path: 'configuracion/flashcard/crear', component: CrearFlashCardComponent, canActivate:[AuthGuard]},
+  {path: 'producto/crear', component: CrearProductoComponent, canActivate: [AuthGuard]},
+  {path: 'configuracion/flashcard/crear', component: CrearFlashCardComponent, canActivate: [AuthGuard]},
   {path: 'perfil', component: PerfilComponent , canActivate: [AuthGuard]},
-  {path: 'configuracion/lapiz/crear', component: CrearLapizComponent, canActivate:[AuthGuard]},
+  {path: 'configuracion/lapiz/crear', component: CrearLapizComponent, canActivate: [AuthGuard]},
   {path: 'detalle/:id', component: DetalleLapizComponent},
-  {path: 'configuracion', component: ConfiguracionComponent,canActivate:[AuthGuard]},
-  {path: 'pedido/detalle', component: PedidoComponent ,canActivate:[AuthGuard]},
+  {path: 'configuracion', component: ConfiguracionComponent, canActivate: [AuthGuard]},
+  {path: 'pedido/detalle', component: PedidoComponent , canActivate: [AuthGuard]},
   {path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

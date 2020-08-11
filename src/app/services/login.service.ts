@@ -31,17 +31,19 @@ export class LoginService {
         let data = JSON.parse(resp);
         if (data.token !== undefined){
           let tkn: string = data.token;
-          this.guardarToken(tkn, login.email);
+          let rol: string = data.rol;
+          this.guardarToken(tkn, login.email, rol);
         }
         return data;
       }));
   }
 
 
-  private guardarToken(token: string, email: string) {
+  private guardarToken(token: string, email: string, rol: string) {
     this.userToken = token;
     localStorage.setItem('token', token);
     localStorage.setItem('email', email);
+    localStorage.setItem('rol', rol);
   }
 
   leerToken() {
@@ -50,7 +52,6 @@ export class LoginService {
     } else {
       this.userToken = '';
     }
-
     return this.userToken;
   }
 
@@ -59,6 +60,7 @@ export class LoginService {
       var user = new LoginModel();
       user.email = localStorage.getItem('email');
       user.token = localStorage.getItem('token');
+      user.rol = localStorage.getItem('rol');
       return user;
     } else {
       return null;
@@ -67,6 +69,7 @@ export class LoginService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('rol');
     this.router.navigateByUrl('/login');
   }
 
@@ -74,15 +77,22 @@ export class LoginService {
     return localStorage.getItem('token') != null && localStorage.getItem('token') != undefined && localStorage.getItem('token').length > 2;
   }
 
-  admin(): Observable<any>{
+  cliente(): boolean {
+    return (
+      this.estaAutenticado() &&
+      localStorage.getItem('rol') != null &&
+      localStorage.getItem('rol') !== undefined &&
+      localStorage.getItem('rol') !== 'ROLE_ADMIN'
+    );
+  }
 
-    let respuesta:boolean=false;
-      let token = localStorage.getItem('token');
-      let headers = new HttpHeaders().set('Authorization',token);
-      return this.http.post(this.url + 'usuario/admin', null, {headers:headers}).pipe(
-        map((resp: boolean) => {
-          return resp;
-        }));
-   }
+  admin(): boolean {
+    return (
+      this.estaAutenticado() &&
+      localStorage.getItem('rol') != null &&
+      localStorage.getItem('rol') !== undefined &&
+      localStorage.getItem('rol') === 'ROLE_ADMIN'
+    );
+  }
 
 }

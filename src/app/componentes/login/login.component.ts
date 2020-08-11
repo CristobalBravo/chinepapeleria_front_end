@@ -43,11 +43,9 @@ export class LoginComponent implements OnInit {
     Swal.showLoading();
 
 
-    console.log(this.login);
     this.loginService.logearUsuario(this.login).subscribe((resp:any) => {
 
       if(resp.status === "error"){
-        console.log(resp.status);
         Swal.fire({
           icon: 'error',
           title: 'Error de Autentificación',

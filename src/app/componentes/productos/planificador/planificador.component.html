@@ -53,7 +53,7 @@
                 <div class="form-group">
                     <label for="">Color Espiral:</label>
                     <select class="form-control" [(ngModel)]="planificador.ColorEspiral_id" #ColorEspiral_id="ngModel" name="ColorEspiral_id" id="ColorEspiralID">
-            <option *ngFor="let ce of coloresEspirales" [value]="ce.id">{{ ce.nombre }}</option>
+            <option *ngFor="let ce of coloresEspirales" [value]="ce.id" type="color">{{ ce.color }}</option>
 
           </select>
 

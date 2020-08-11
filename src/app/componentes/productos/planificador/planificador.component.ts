@@ -10,6 +10,7 @@ import { ListarTipoHojasService } from '../../../services/listar-tipo-hojas.serv
 import { ListarTamanioHojasService } from 'src/app/services/listar-tamanio-hojas.service';
 import { ListarColorEspiralService } from 'src/app/services/listar-color-espiral.service';
 import { ListarTipoTapaService } from '../../../services/listar-tipo-tapa.service';
+import { PlanificadorModel } from 'src/app/Models/planificador.models';
 
 @Component({
   selector: 'app-planificador',
@@ -20,7 +21,7 @@ export class PlanificadorComponent implements OnInit {
 
   planificadores:any[]=[];
   detallePedido= new DetallePedidoModel();
-  planificador:any;
+  planificador= new PlanificadorModel();
   productos:any[]=[];
   tipoHojas:any[]=[];
   tamanioHojas:any[]=[];

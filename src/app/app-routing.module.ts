@@ -15,6 +15,8 @@ import { CrearLapizComponent } from './componentes/productos/lapiz/crear-lapiz/c
 import { DetalleLapizComponent } from './componentes/productos/lapiz/detalle-lapiz/detalle-lapiz.component';
 import { ConfiguracionComponent } from './componentes/usuario/configuracion/configuracion.component';
 import { PedidoComponent } from './componentes/pedido/pedido.component';
+import { PlanificadorComponent } from './componentes/productos/planificador/planificador.component';
+import { ListarPlanificadorComponent } from './componentes/productos/planificador/listar-planificador/listar-planificador.component';
 
 
 
@@ -23,6 +25,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'lapiz', component: LapizComponent},
   {path: 'flashcard', component: FlashcardComponent},
+  {path: 'planificador/crear', component: PlanificadorComponent},
+  {path: 'planificador', component: ListarPlanificadorComponent},
   {path: 'flashcard/diseñar/:id', component: DisenarComponent},
   {path: 'registrar', component: CrearUsuarioComponent},
   {path: 'producto/crear', component: CrearProductoComponent, canActivate:[AuthGuard]},

@@ -22,6 +22,8 @@ import { DisenarComponent } from './componentes/flashcard/disenar/disenar.compon
 import { DetalleLapizComponent } from './componentes/productos/lapiz/detalle-lapiz/detalle-lapiz.component';
 import { ConfiguracionComponent } from './componentes/usuario/configuracion/configuracion.component';
 import { PedidoComponent } from './componentes/pedido/pedido.component';
+import { PlanificadorComponent } from './componentes/productos/planificador/planificador.component';
+import { ListarPlanificadorComponent } from './componentes/productos/planificador/listar-planificador/listar-planificador.component';
 
 
 
@@ -44,6 +46,8 @@ import { PedidoComponent } from './componentes/pedido/pedido.component';
     DetalleLapizComponent,
     ConfiguracionComponent,
     PedidoComponent,
+    PlanificadorComponent,
+    ListarPlanificadorComponent,
 
   ],
   imports: [

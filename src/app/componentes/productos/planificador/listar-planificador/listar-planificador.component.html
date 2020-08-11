@@ -1,0 +1,18 @@
+<hr color="#ff0080">
+<div class="container">
+    <h1 style="color: #ff0080;">Planificadores</h1>
+    <hr color="#ff0080">
+    <div class="container col-lg-12">
+        <div class="card-columns">
+            <div class="card" *ngFor="let planificador of planificadores; let i = index">
+                <img class="card-img-top img-fluid" src="" alt="">
+                <div class="card-block">
+
+                    <p class="card-text text-center"> Cantidad de Hojas: $ {{planificador.cantidad_hojas}}</p>
+
+                    <button type="button" class="btn btn-outline-primary btn-block" [routerLink]="['diseñar', planificador.id]">Diseñar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

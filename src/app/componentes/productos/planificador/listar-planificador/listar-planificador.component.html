@@ -7,9 +7,7 @@
             <div class="card" *ngFor="let planificador of planificadores; let i = index">
                 <img class="card-img-top img-fluid" [src]="'http://127.0.0.1:8000/'+planificador.producto.img" >
                 <div class="card-block">
-
                     <p class="card-text text-center"> Cantidad de Hojas: {{planificador.cantidad_hojas}}</p>
-
                     <button type="button" class="btn btn-outline-primary btn-block" [routerLink]="['diseñar', planificador.id]">Diseñar</button>
                 </div>
             </div>

@@ -44,15 +44,22 @@
 
     <div class="container col-lg-12">
         <div class="card-columns">
-            <div class="card  " *ngFor="let lapiz of lapices; let i = index">
-                <img class="card-img-top img-fluid" src="{{ 'http://127.0.0.1:8000/'+lapiz.producto.img }}" alt="">
-                <div class="card-block">
-                    <h4 class="card-title text-center">{{lapiz.producto.nombre}}</h4>
-                    <p class="card-text text-center">Color: {{lapiz.color}}</p>
-                    <p class="card-text text-center"> Precio: $ {{lapiz.producto.precio}}</p>
-                    <p class="card-text text-center"> Tipo de Punta: {{lapiz.tipopunta.nombre}}</p>
-
-                    <button type="button" class="btn btn-outline-primary btn-block" (click)="verLapiz(i)">Ver Mas</button>
+            <div class="card" *ngFor="let lapiz of lapices; let i = index">
+                <img class="card-img-top img-fluid mx-auto d-block" src="{{ 'http://127.0.0.1:8000/'+lapiz.producto.img }}" style="height: 200px; width: auto;">
+                <div class="card-body">
+                  <h5 class="card-title">{{lapiz.producto.nombre}}</h5>
+                  <p class="card-text">{{lapiz.descripcion}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <b>Color: </b>{{lapiz.color}}
+                    <span class="badge badge-secondary" style="-webkit-text-stroke: 0.8px black; border:0.8px black solid;" [ngStyle]="{'background-color':lapiz.color_rgb}">color</span>
+                  </li>
+                  <li class="list-group-item"><b>Precio: </b>${{lapiz.producto.precio}}</li>
+                  <li class="list-group-item"><b>Tipo de Punta: </b>{{lapiz.tipopunta.nombre}}</li>
+                </ul>
+                <div class="card-body">
+                  <a class="card-link" (click)="verLapiz(i)">Ver mas</a>
                 </div>
 
             </div>

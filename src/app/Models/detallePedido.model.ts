@@ -1,6 +1,6 @@
 export class DetallePedidoModel{
   id:number;
-  cantidad:string;
+  cantidad:number;
   precio:string;
   Pedido_id:number;
   Producto_id:number;

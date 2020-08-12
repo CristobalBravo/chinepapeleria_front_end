@@ -30,9 +30,8 @@ export class LapizComponent implements OnInit {
   }
 
   verLapiz(idx:number){
-    console.log(idx);
-    this.lapiz=this.lapices[idx];
-    this.router.navigate(['detalle',this.lapiz.id]);
+    this.lapiz = this.lapices[idx];
+    this.router.navigate(['detalle', this.lapiz.id]);
   }
 
  guardar(form:NgForm){

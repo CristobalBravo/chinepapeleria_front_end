@@ -6,20 +6,66 @@
 
     <div class="row">
         <div class="col-md-4">
-            <img class="img-fluid" src="{{ 'http://127.0.0.1:8000/'+producto.img }}" alt="">
+            <img class="img-thumbnail img-fluid" src="{{ 'http://127.0.0.1:8000/'+producto.img }}" alt="">
         </div>
         <div class="col-md-8">
-            <label>Color: {{lapiz.color}}</label> <br>
-            <label>Descripción: {{lapiz.descripcion}}</label><br>
-            <label>Tipo Punta: {{tipoPunta.nombre}}</label><br>
-            <label> Detalle de Punta: {{tipoPunta.descripcion}}</label><br>
-            <label>Precio Unitario: $ {{producto.precio}}</label> <br>
-            <form class="form-group" (ngSubmit)="guardar(f)" #f="ngForm">
-                <label for="">Cantidad:</label>
-                <input type="number" [(ngModel)]="detallePedido.cantidad" name="cantidad"  #cantidad="ngModel" class=" text-center" name="cantidad" placeholder="Cantidad" id="cantidad"><br>
+          <div class="list-group">
+            <a class="list-group-item list-group-item-action">
+              <b>Descripción: </b>{{lapiz.descripcion}}
+            </a>
+            <a class="list-group-item list-group-item-action">
+              <b>Marca: </b>{{lapiz.producto.marca.nombre}}
+            </a>
+            <a class="list-group-item list-group-item-action">
+              <b>Categoría: </b>{{lapiz.producto.categoria.nombre}}
+            </a>
+            <a class="list-group-item list-group-item-action">
+              <b>Color: </b>{{lapiz.color}}
+              <span class="badge badge-secondary" style="-webkit-text-stroke: 0.8px black; border:0.8px black solid;" [ngStyle]="{'background-color':lapiz.color_rgb}">color</span>
+            </a>
+            <a class="list-group-item list-group-item-action">
+              <b>Tipo Punta: </b>{{tipoPunta.nombre}}
+            </a>
+            <a class="list-group-item list-group-item-action">
+              <b>Detalle de Punta: </b>{{tipoPunta.descripcion}}
+            </a>
+            <a class="list-group-item list-group-item-action"><b>Precio Unitario: </b>${{lapiz.producto.precio}}</a>
+            <a class="list-group-item list-group-item-action"><b>Stock Disponible: </b>{{lapiz.producto.stock}}</a>
+          </div>
+          <br />
+          <form class="form-group" (ngSubmit)="guardar(f)" #f="ngForm">
+            <div class="row">
+              <div class="col-2">
+                <label><b>Cantidad:</b></label>
+              </div>
+              <div class="col-10">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-info" (click)="cambiarCantidad(0)">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"/>
+                      <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
+                      <path fill-rule="evenodd" d="M5.5 10a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                  </button>
+                  <button type="button" class="btn btn-light" [innerHTML]="detallePedido.cantidad"></button>
+                  <button type="button" class="btn btn-info" (click)="cambiarCantidad(1)">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"/>
+                      <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
+                      <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+                      <path fill-rule="evenodd" d="M7.5 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-2z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+              <div class="col">
                 <button class="btn btn-outline-info" type="submit" class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
 
-            </form>
+          </form>
 
 
         </div>

@@ -17,6 +17,8 @@ import { ConfiguracionComponent } from './componentes/usuario/configuracion/conf
 import { PedidoComponent } from './componentes/pedido/pedido.component';
 import { PlanificadorComponent } from './componentes/productos/planificador/planificador.component';
 import { ListarPlanificadorComponent } from './componentes/productos/planificador/listar-planificador/listar-planificador.component';
+import { CuadernoComponent } from './componentes/cuaderno/cuaderno.component';
+import { DisenarcuadernoComponent } from './componentes/cuaderno/disenarcuaderno/disenarcuaderno.component';
 
 
 
@@ -36,6 +38,8 @@ const routes: Routes = [
   {path: 'detalle/:id', component: DetalleLapizComponent},
   {path: 'configuracion', component: ConfiguracionComponent,canActivate:[AuthGuard]},
   {path: 'pedido/detalle', component: PedidoComponent ,canActivate:[AuthGuard]},
+  {path: 'cuaderno', component: CuadernoComponent},
+  {path: 'cuaderno/diseñar', component: DisenarcuadernoComponent},
   {path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

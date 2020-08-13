@@ -1,0 +1,17 @@
+<hr color="#ff0080">
+<div class="container">
+    <h1 style="color: #ff0080;">Cuadernos</h1>
+    <hr color="#ff0080">
+    <div class="container col-lg-12">
+        <div class="card-columns">
+            <div class="card" *ngFor="let cuaderno of cuadernos; let i = index">
+                <img class="card-img-top img-fluid" alt="">
+                <div class="card-block">
+                    <h4 class="card-title text-center">{{cuaderno.producto.nombre}}</h4>
+                    <p class="card-text text-center"> Precio: $ {{cuaderno.producto.precio}}</p>
+                    <button type="button" class="btn btn-outline-primary btn-block" [routerLink]="['diseñar', cuaderno.id]">Diseñar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

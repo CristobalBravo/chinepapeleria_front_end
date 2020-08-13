@@ -24,6 +24,8 @@ import { ConfiguracionComponent } from './componentes/usuario/configuracion/conf
 import { PedidoComponent } from './componentes/pedido/pedido.component';
 import { PlanificadorComponent } from './componentes/productos/planificador/planificador.component';
 import { ListarPlanificadorComponent } from './componentes/productos/planificador/listar-planificador/listar-planificador.component';
+import { CuadernoComponent } from './componentes/cuaderno/cuaderno.component';
+import { DisenarcuadernoComponent } from './componentes/cuaderno/disenarcuaderno/disenarcuaderno.component';
 
 
 
@@ -48,6 +50,8 @@ import { ListarPlanificadorComponent } from './componentes/productos/planificado
     PedidoComponent,
     PlanificadorComponent,
     ListarPlanificadorComponent,
+    CuadernoComponent,
+    DisenarcuadernoComponent,
 
   ],
   imports: [

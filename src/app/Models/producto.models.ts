@@ -1,6 +1,7 @@
 import { PlanificadorModel } from './planificador.models';
 import { LapizModel } from './lapiz.model';
 import { FlashCardModel } from './flashcard.models';
+import { AgendaModel } from './agenda.models';
 
 export class ProductoModel {
   id: number;
@@ -15,6 +16,7 @@ export class ProductoModel {
   lapiz: LapizModel;
   flashcard: FlashCardModel;
   planificador: PlanificadorModel;
+  agenda:AgendaModel;
 
   constructor() {}
 }

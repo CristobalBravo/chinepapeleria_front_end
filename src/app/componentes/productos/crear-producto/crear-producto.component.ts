@@ -20,6 +20,7 @@ import { CrearProductoService } from '../../../services/Producto/crear-producto.
 import { FlashCardModel } from 'src/app/Models/flashcard.models';
 import Swal from 'sweetalert2';
 import { ViewChild, ElementRef } from '@angular/core';
+import { AgendaModel } from 'src/app/Models/agenda.models';
 
 @Component({
   selector: 'app-crear-producto',
@@ -60,6 +61,7 @@ export class CrearProductoComponent implements OnInit {
     private TamanioHojaService: TamanioHojaService
   ) {
     this.producto.lapiz = new LapizModel();
+    this.producto.agenda = new AgendaModel;
     this.producto.flashcard = new FlashCardModel();
     this.producto.planificador = new PlanificadorModel();
   }
@@ -311,13 +313,61 @@ export class CrearProductoComponent implements OnInit {
         return;
       }
     }
+    console.log(this.producto);
+    if (this.producto.TipoProducto_id == this.AGENDA) {
+      if (this.producto.agenda.cantidad_hojas != null) {
+        formdata.append('cantidad_hojas', this.producto.agenda.cantidad_hojas.toString());
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Formulario no Válido',
+          text: 'No ha ingresado la cantidad de hojas del Planificador',
+        });
+        return;
+      }
+      if (this.producto.agenda.TamanioHoja_id != null) {
+        formdata.append('TamanioHoja_id', this.producto.agenda.TamanioHoja_id.toString());
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Formulario no Válido',
+          text: 'No ha seleccionado el tamaño de la hoja del agenda',
+        });
+        return;
+      }
+      if (this.producto.agenda.TipoTapa_id != null) {
+        formdata.append('TipoTapa_id', this.producto.agenda.TipoTapa_id.toString());
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Formulario no Válido',
+          text: 'No ha seleccionado el tipo de la tapa del Agenda',
+        });
+        return;
+      }
+      if (this.producto.agenda.TipoHoja_id != null) {
+        formdata.append(
+          'TipoHoja_id',
+          this.producto.agenda.TipoHoja_id.toString()
+        );
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Formulario no Válido',
+          text: 'No ha seleccionado el tipo de la hoja del Agenda',
+        });
+        return;
+      }
+    }
 
     this.crearProductoService
       .crearProducto(formdata, localStorage.getItem('token'))
       .subscribe((resp) => {
+        console.log(resp);
         if (resp.status === 'success') {
           this.producto = new ProductoModel();
           this.producto.lapiz = new LapizModel();
+          this.producto.agenda= new AgendaModel();
           this.producto.flashcard = new FlashCardModel();
           this.producto.planificador = new PlanificadorModel();
           this.fileinput.nativeElement.value = '';

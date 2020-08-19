@@ -47,19 +47,20 @@
             <div class="card" *ngFor="let lapiz of lapices; let i = index">
                 <img class="card-img-top img-fluid mx-auto d-block" src="{{ 'http://127.0.0.1:8000/'+lapiz.producto.img }}" style="height: 200px; width: auto;">
                 <div class="card-body">
-                  <h5 class="card-title">{{lapiz.producto.nombre}}</h5>
-                  <p class="card-text">{{lapiz.descripcion}}</p>
+                    <h5 class="card-title">{{lapiz.producto.nombre}}</h5>
+                    <p class="card-text">{{lapiz.descripcion}}</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <b>Color: </b>{{lapiz.color}}
-                    <span class="badge badge-secondary" style="-webkit-text-stroke: 0.8px black; border:0.8px black solid;" [ngStyle]="{'background-color':lapiz.color_rgb}">color</span>
-                  </li>
-                  <li class="list-group-item"><b>Precio: </b>${{lapiz.producto.precio}}</li>
-                  <li class="list-group-item"><b>Tipo de Punta: </b>{{lapiz.tipopunta.nombre}}</li>
+                    <li class="list-group-item">
+                        <b>Color: </b>{{lapiz.color}}
+                        <span class="badge badge-secondary" style="-webkit-text-stroke: 0.8px black; border:0.8px black solid;" [ngStyle]="{'background-color':lapiz.color_rgb}">color</span>
+                    </li>
+                    <li class="list-group-item"><b>Precio: </b>${{lapiz.producto.precio}}</li>
+                    <li class="list-group-item"><b>Tipo de Punta: </b>{{lapiz.tipopunta.nombre}}</li>
                 </ul>
                 <div class="card-body">
-                  <a class="card-link" (click)="verLapiz(i)">Ver mas</a>
+
+                    <button type="button" (click)="verLapiz(i)" class="btn btn-outline-primary btn-block">Ver mas</button>
                 </div>
 
             </div>

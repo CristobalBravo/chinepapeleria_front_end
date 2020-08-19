@@ -30,6 +30,8 @@ import { DisenarAgendaComponent } from './componentes/productos/agenda/disenar-a
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +63,8 @@ import { DisenarAgendaComponent } from './componentes/productos/agenda/disenar-a
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
 
   ],
   providers: [],

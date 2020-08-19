@@ -1,0 +1,29 @@
+<hr color="#ff0080">
+<div class="container">
+    <h1 style="color: #ff0080;">Agendas</h1>
+    <hr color="#ff0080">
+    <div class="container col-lg-12">
+        <div class="card-columns">
+            <div class="card" *ngFor="let agenda of agendas; let i = index">
+                <img class="card-img-top img-fluid mx-auto d-block" src="{{ 'http://127.0.0.1:8000/'+agenda.producto.img }}" style="height: 200px; width: auto;">
+                <div class="card-body">
+                    <h5 class="card-title">{{agenda.producto.nombre}}</h5>
+                    <p class="card-text">{{agenda.descripcion}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <b>Color: </b>{{agenda.color}}
+                        <span class="badge badge-secondary" style="-webkit-text-stroke: 0.8px black; border:0.8px black solid;" [ngStyle]="{'background-color':agenda.color_rgb}">color</span>
+                    </li>
+                    <li class="list-group-item"><b>Precio: </b>${{agenda.producto.precio}}</li>
+                    <li class="list-group-item"><b>Tamaño de Hoja: </b>{{agenda.tamanio_hoja.nombre}}</li>
+                    <li class="list-group-item"><b>Tipo de Hoja: </b>{{agenda.tipo_hoja.nombre}}</li>
+                    <li class="list-group-item"><b>Tipo de Tapa: </b>{{agenda.tipo_tapa.nombre}}</li>
+                </ul>
+                <div class="card-body">
+                    <a class="card-link" (click)="verAgenda(i)">Diseñar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

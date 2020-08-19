@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FlashCardService } from 'src/app/services/flash-card.service';
 import { FlashCardModel } from '../../Models/flashcard.models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-flashcard',
@@ -11,7 +12,7 @@ export class FlashcardComponent implements OnInit {
   flashCard: FlashCardModel= new FlashCardModel();
   flashCards : any[]=[];
 
-  constructor(private flashCardService: FlashCardService) { }
+  constructor(private flashCardService: FlashCardService, private router:Router) { }
 
   ngOnInit(): void {
     this.flashCardService.all().subscribe((resp:any)=>{
@@ -19,6 +20,11 @@ export class FlashcardComponent implements OnInit {
       console.log(resp);
     })
 
+  }
+
+  DisenarFlashCard(idx:number){
+    this.flashCard = this.flashCards[idx];
+    this.router.navigate(['flashcard/diseñar', this.flashCard.id]);
   }
 
 }

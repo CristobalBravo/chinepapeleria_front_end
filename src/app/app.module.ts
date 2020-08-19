@@ -25,6 +25,8 @@ import { PedidoComponent } from './componentes/pedido/pedido.component';
 import { PlanificadorComponent } from './componentes/productos/planificador/planificador.component';
 import { ListarPlanificadorComponent } from './componentes/productos/planificador/listar-planificador/listar-planificador.component';
 import { DisenarPlanificadorComponent } from './componentes/productos/planificador/disenar/disenar-planificador/disenar-planificador.component';
+import { AgendaComponent } from './componentes/productos/agenda/agenda.component';
+import { DisenarAgendaComponent } from './componentes/productos/agenda/disenar-agenda/disenar-agenda.component';
 
 
 
@@ -49,7 +51,12 @@ import { DisenarPlanificadorComponent } from './componentes/productos/planificad
     PedidoComponent,
     PlanificadorComponent,
     ListarPlanificadorComponent,
+<<<<<<< HEAD
     DisenarPlanificadorComponent,
+=======
+    AgendaComponent,
+    DisenarAgendaComponent,
+>>>>>>> origin/Agenda
 
   ],
   imports: [

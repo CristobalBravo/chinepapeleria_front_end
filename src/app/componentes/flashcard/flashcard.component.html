@@ -6,13 +6,16 @@
         <div class="card-columns">
             <div class="card" *ngFor="let flashCard of flashCards; let i = index">
                 <img class="card-img-top img-fluid" src="{{ 'http://127.0.0.1:8000/'+flashCard.producto.img }}" alt="">
-                <div class="card-block">
-                    <h4 class="card-title text-center">{{flashCard.producto.nombre}}</h4>
-                    <p class="card-text text-center"> Precio: $ {{flashCard.producto.precio}}</p>
-                    <p class="card-text text-center"> Catnidad de Hojas: {{flashCard.cantidad_hojas}}</p>
-                    <p class="card-text text-center"> Largo: {{flashCard.largo}} {{flashCard.unidad_medida}}</p>
-                    <p class="card-text text-center"> Ancho: {{flashCard.ancho}} {{flashCard.unidad_medida}}</p>
-                    <button type="button" class="btn btn-outline-primary btn-block" [routerLink]="['diseñar', flashCard.id]">Diseñar</button>
+                <div class="card-body">
+                    <h5 class="card-title">{{flashCard.producto.nombre}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>Cantidad Hojas: </b>${{flashCard.cantidad_hojas}}</li>
+                    <li class="list-group-item"><b>Largo:  </b>{{flashCard.largo}} {{flashCard.unidad_medida}}</li>
+                    <li class="list-group-item"><b>Ancho: </b>{{flashCard.ancho}} {{flashCard.unidad_medida}}</li>
+                </ul>
+                <div class="card-body">
+                    <a class="card-link" (click)="DisenarFlashCard(i)">Diseñar</a>
                 </div>
             </div>
         </div>

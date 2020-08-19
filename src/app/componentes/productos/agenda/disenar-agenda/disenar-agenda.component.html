@@ -1,0 +1,92 @@
+<div class="container mt-5">
+
+    <hr color="#ff0080;">
+    <h1 style="color: #ff0080;">Producto: {{producto.nombre}}</h1>
+    <hr color="#ff0080">
+
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-thumbnail img-fluid" src="{{ 'http://127.0.0.1:8000/'+producto.img }}" alt="">
+        </div>
+        <div class="col-md-8">
+            <div class="list-group">
+                <a class="list-group-item list-group-item-action">
+                    <b>Cantidad Hojas: </b>{{agenda.cantidad_hojas}}
+                </a>
+                <a class="list-group-item list-group-item-action">
+                    <b>Marca: </b>{{agenda.producto.marca.nombre}}
+                </a>
+                <a class="list-group-item list-group-item-action">
+                    <b>Categoría: </b>{{agenda.producto.categoria.nombre}}
+                </a>
+                <a class="list-group-item list-group-item-action">
+                    <b>Tamaño Hoja: </b>{{TamanioHoja.nombre}}
+                </a>
+                <a class="list-group-item list-group-item-action">
+                    <b>Detalle de Tamaño: </b>Ancho {{TamanioHoja.ancho}} {{ TamanioHoja.unidad_medida }} observaciones {{TamanioHoja.observaciones}} {{ TamanioHoja.unidad_medida }}
+                </a>
+                <a class="list-group-item list-group-item-action">
+                    <b>Tipo Hoja: </b>{{tipoHoja.nombre}}
+                </a>
+                <a class="list-group-item list-group-item-action">
+                    <b>Gramaje: </b> {{tipoHoja.gramaje}}
+                </a>
+                <a class="list-group-item list-group-item-action">
+                    <b>Tipo Tapa: </b> {{tipoTapa.nombre}}
+                </a>
+                <a class="list-group-item list-group-item-action"><b>Precio Unitario: </b>${{agenda.producto.precio}}</a>
+                <a class="list-group-item list-group-item-action"><b>Stock Disponible: </b>{{agenda.producto.stock}}</a>
+
+            </div>
+            <br />
+            <form class="form-group" (ngSubmit)="guardar(f)" #f="ngForm">
+                <div class="row p-md-1">
+                    <label> Comentarios</label>
+                    <textarea [(ngModel)]="configuracionAgenda.comentarios" #comentarios="ngModel" name="comentarios" class="form-control" type="text"></textarea>
+                    <label> Observaciones</label>
+                    <textarea [(ngModel)]="configuracionAgenda.observaciones" #observaciones="ngModel" name="observaciones" class="form-control" type="text"></textarea>
+                    <br>
+                    <div class="row p-md-1">
+                        <label class="col-form-label col-sm-5">Color Espiral del Planificador</label>
+                        <div class="col-sm-9">
+                            <select required (change)="cambioColor($event)" [(ngModel)]="configuracionAgenda.ColorEspiral_id" #ColorEspiral_id="ngModel" name="ColorEspiral_id" class="form-control">
+                          <option *ngFor="let col of colorEspiral" [value]="col.id">{{ col.color + ' (Tipo de Espiral: ' + col.tipoespiral.nombre + ')' }}</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-2">
+                        <label><b>Cantidad:</b></label>
+                    </div>
+                    <div class="col-10">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-info" (click)="cambiarCantidad(0)">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"/>
+                    <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
+                    <path fill-rule="evenodd" d="M5.5 10a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
+                  </svg>
+                </button>
+                            <button type="button" class="btn btn-light" [innerHTML]="detallePedido.cantidad"></button>
+                            <button type="button" class="btn btn-info" (click)="cambiarCantidad(1)">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"/>
+                    <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
+                    <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+                    <path fill-rule="evenodd" d="M7.5 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-2z"/>
+                  </svg>
+                </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col">
+                        <button class="btn btn-outline-info" type="submit" class="btn btn-primary">Comprar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

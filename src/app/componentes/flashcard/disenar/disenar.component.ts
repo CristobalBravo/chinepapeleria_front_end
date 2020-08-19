@@ -11,7 +11,7 @@ import { DetallePedidoModel } from '../../../Models/detallePedido.model';
 import { DetallePedidoService } from '../../../services/detalle-pedido.service';
 import { DiseñoService } from 'src/app/services/diseño.service';
 import { ConfiguracionFlashCardService } from '../../../services/configuracion-flash-card.service';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-disenar',
@@ -29,6 +29,7 @@ export class DisenarComponent implements OnInit {
     private tipoLineService:TipoLineaService, private pedioService:PedidoService,
     private detallePedidoServicio:DetallePedidoService, private disenoService:DiseñoService,
     private configuracionFlashCardService:ConfiguracionFlashCardService, private router:Router) {
+      this.detallePedido.cantidad = 0;
      }
 
   ngOnInit(): void {
@@ -43,6 +44,22 @@ export class DisenarComponent implements OnInit {
   }
   fileChange(files: any) {
     this.diseno.image = files[0];
+  }
+
+  cambiarCantidad(accion:number){
+    var cant = this.detallePedido.cantidad;
+    if (accion === 1){ //Agregar una unidad
+      cant++;
+      if (cant > this.flashcard.producto.stock){
+        cant = this.flashcard.producto.stock;
+      }
+    }else if (accion === 0){ //Quitar una unidad
+      cant--;
+      if (cant < 0) {
+        cant = 0;
+      }
+    }
+    this.detallePedido.cantidad = cant;
   }
 
   guardar(form:NgForm){
@@ -82,10 +99,18 @@ export class DisenarComponent implements OnInit {
           this.configuracionFlashCardService.crear(this.configuracionFlashCard,localStorage.getItem('token')).subscribe((resp:any)=>{
           })
         })
-      })
-      this.router.navigateByUrl('pedido/detalle');
 
+        if (resp.status !== 'error') {
+          console.log(resp.status);
+          console.log(resp);
+          Swal.fire({
+            icon: 'success',
+            title: 'Pedido creado con éxito.',
+          });
+          this.router.navigateByUrl('pedido/detalle');
+          return;
+        }
+      });
     }
   }
-
 }

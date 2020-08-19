@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FlashCardService } from '../../../services/flash-card.service';
-import { FlashCardModel } from '../../../Models/flashcard.models';
 import { TipoLineaService } from '../../../services/tipo-linea.service';
 import { ConfiguracionFlashCardModel } from '../../../Models/ConfiguracionFlashCard.model';
 import { DisenoModel } from 'src/app/Models/diseno.model';
@@ -34,6 +33,7 @@ export class DisenarComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(id=>{
       this.flashCardService.buscarPorId(id).subscribe((resp:any)=>{
+
         this.flashcard=resp.flashCard;
       });
     });

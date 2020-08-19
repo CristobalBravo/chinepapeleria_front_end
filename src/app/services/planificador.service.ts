@@ -18,6 +18,11 @@ export class PlanificadorService {
     return this.http.post(this.url+'planificador/crear',planificador, {headers:headers} );
   }
 
+  crearConfiguracion(planificador,token){
+    let headers = new HttpHeaders().set('Authorization',token);
+    return this.http.post(this.url+'configuracionplanificador/crear',planificador, {headers:headers} );
+  }
+
   all(){
     let token = localStorage.getItem('token');
     let headers = new HttpHeaders().set('Authorization',token);
@@ -34,8 +39,9 @@ export class PlanificadorService {
     return planificadorArray;
   }
 
-  buscarPorId(id){
-    return this.http.post(this.url+'planificador/buscar',id);
+  buscarPorId(id,token){
+    let headers = new HttpHeaders().set('Authorization',token);
+    return this.http.post(this.url+'planificador/buscar',id,{headers:headers});
   }
 
 

@@ -15,4 +15,9 @@ export class UsuarioService {
     return this.http.post(this.url+'registrar',usuario);
     }
 
+  buscarUsuario(token){
+    let headers = new HttpHeaders().set('Authorization',token);
+    return this.http.post(this.url+'buscar',null,{headers:headers});
+  }
+
 }

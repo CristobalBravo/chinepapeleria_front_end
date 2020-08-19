@@ -1,10 +1,61 @@
-<div class="m-5">
-    <h1>Perfil de Usuario</h1>
-    <hr>
-    <div *ngIf="isAdmin">
-        <button routerLink="/configuracion" class="btn btn-outline-danger">Configuración</button>
+<div class="container mt-5 ">
+    <div class="card" style="border-color: #ff0080;">
+        <div class="card-body">
+            <div class="container" style="text-align: center;">
+                <h3 style="color: #ff0080;">ChiniCliente</h3>
+
+
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="nombre">Nombre</label>
+                        <input disabled type="text" class="form-control text-center" value="{{user.nombre}}" formControlName="nombre" id="nombre">
+
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="apellido">Apellido</label>
+                        <input disabled type="text" value="{{user.apellido}}" class="form-control text-center" formControlName="apellido" id="apellido">
+
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="rut">RUT</label>
+                        <input disabled type="text" value="{{user.nombre}}" class="form-control text-center" formControlName="rut" id="rut">
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <label for="codigo_verificacion">Digito Verificador</label>
+                        <input type="text" value="{{user.codigo_verificacion}}" class="form-control text-center" formControlName="codigo_verificacion" id="codigo_verificacion" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="numero">Número de Teléfono</label>
+                        <input type="number" value="{{user.numero}}" class="form-control text-center" formControlName="numero" id="numero" disabled>
+
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" value="{{user.email}}" class="form-control text-center" formControlName="email" id="email" disabled>
+
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="calle">Dirección</label>
+                        <input type="text" value="{{user.calle}}" class="form-control text-center" formControlName="calle" id="calle" disabled>
+
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" value="{{user.ciudad}}" class="form-control text-center" formControlName="ciudad" id="ciudad" disabled>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
-
-
 
 </div>

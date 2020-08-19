@@ -34,6 +34,7 @@ export class LoginService {
           let rol: string = data.rol;
           this.guardarToken(tkn, login.email, rol);
         }
+
         return data;
       }));
   }

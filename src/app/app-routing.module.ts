@@ -17,6 +17,7 @@ import { ConfiguracionComponent } from './componentes/usuario/configuracion/conf
 import { PedidoComponent } from './componentes/pedido/pedido.component';
 import { PlanificadorComponent } from './componentes/productos/planificador/planificador.component';
 import { ListarPlanificadorComponent } from './componentes/productos/planificador/listar-planificador/listar-planificador.component';
+import { DisenarPlanificadorComponent } from './componentes/productos/planificador/disenar/disenar-planificador/disenar-planificador.component';
 
 
 
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'planificador/crear', component: PlanificadorComponent},
   {path: 'planificador', component: ListarPlanificadorComponent},
   {path: 'flashcard/diseñar/:id', component: DisenarComponent},
+  {path: 'planificador/diseñar/:id', component: DisenarPlanificadorComponent},
   {path: 'registrar', component: CrearUsuarioComponent},
   {path: 'producto/crear', component: CrearProductoComponent, canActivate: [AuthGuard]},
   {path: 'configuracion/flashcard/crear', component: CrearFlashCardComponent, canActivate: [AuthGuard]},

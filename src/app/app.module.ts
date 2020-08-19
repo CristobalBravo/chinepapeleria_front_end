@@ -51,12 +51,9 @@ import { DisenarAgendaComponent } from './componentes/productos/agenda/disenar-a
     PedidoComponent,
     PlanificadorComponent,
     ListarPlanificadorComponent,
-<<<<<<< HEAD
     DisenarPlanificadorComponent,
-=======
     AgendaComponent,
     DisenarAgendaComponent,
->>>>>>> origin/Agenda
 
   ],
   imports: [

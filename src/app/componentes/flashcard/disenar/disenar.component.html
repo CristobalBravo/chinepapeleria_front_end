@@ -2,6 +2,14 @@
 <div class="container">
     <h1 style="color: #ff0080;">{{flashcard.producto.nombre}}</h1>
     <hr color="#ff0080">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a style="color: #ff0080;" [routerLink]="['home']">Inicio</a></li>
+            <li class="breadcrumb-item"><a style="color: #ff0080;" [routerLink]="['/flashcard']">Flashcards</a></li>
+
+            <li class="breadcrumb-item active">{{flashcard.producto.nombre}}</li>
+        </ol>
+    </nav>
     <div class="row">
         <div class="col-md-4">
             <img class="img-thumbnail img-fluid" src="{{ 'http://127.0.0.1:8000/'+flashcard.producto.img }}" alt="">

@@ -1,13 +1,19 @@
 <div class="container mt-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a style="color: #ff0080;" [routerLink]="['home']">Inicio</a></li>
+            <li class="breadcrumb-item active">Crear Producto</li>
+        </ol>
+    </nav>
     <div class="card">
         <br>
-        <h1 class="text-center">Crea un Producto</h1>
+        <h1 class="text-center" style="color: #ff0080;">Crear un Producto</h1>
         <hr>
         <br>
         <div class="card-body">
             <form class="form-signin" #l="ngForm">
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-3">Nombre</label>
+                    <label class="col-form-label col-sm-3">Nombre:</label>
                     <div class="col-sm-9">
                         <input required type="text" [(ngModel)]="producto.nombre" #nombre="ngModel" name="nombre" id="nombre" class="form-control" placeholder="Ingrese El Nombre Del Producto" tabindex="1">
                     </div>

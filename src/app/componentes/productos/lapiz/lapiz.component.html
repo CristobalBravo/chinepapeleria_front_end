@@ -4,6 +4,13 @@
     <h1 style="color: #ff0080;">Lápices</h1>
     <hr color="#ff0080">
 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a style="color: #ff0080;" [routerLink]="['home']">Inicio</a></li>
+            <li class="breadcrumb-item active" [routerLink]="['lapiz']">Lápices</li>
+        </ol>
+    </nav>
+
 
     <div class="modal fade" id="detallePedido" tabindex="-1" role="dialog" aria-labelledby="NuevodetallePedido" aria-hidden="true">
         <div class="modal-dialog">

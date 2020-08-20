@@ -5,8 +5,9 @@
         <div class="col-4 col-md" style="text-align: center;">
             <h5 style="color: #ff0080;">Información</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Envío y Entregas</a></li>
+                <li><button type="button" class="btn btn-link" (click)="abrirModal()">Envíos y Entregas</button></li>
                 <li><a class="text-muted" href="#">¿Cómo Comprar?</a></li>
+
 
             </ul>
         </div>
@@ -25,5 +26,24 @@
         </div>
     </div>
 
+    <div class="modal" id="exampleModal" tabindex="-1" [ngStyle]="{'display': oculto2}">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title " style="color: #ff0080;" id="exampleModalLabel">Envío y Entregas</h5>
+                    <button type="button" class="close" (click)="cerrarModal()" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <img src="../assets/img/entrega.png" width="95%" alt="">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 </div>

@@ -7,6 +7,14 @@
     <table class="table">
         <thead>
             <tr>
+                <th scope="col">
+
+                    <div class="form-check">
+                        <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="" aria-label="...">
+                    </div>
+
+                </th>
+
                 <th scope="col">Nombre</th>
                 <th scope="col">Precio Unitario</th>
                 <th scope="col">Cantidad</th>
@@ -17,11 +25,18 @@
         </thead>
         <tbody>
             <tr *ngFor="let detalle of detallePedidos let i =index">
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" [value]="detalle.id" (change)="getPagar($event,detalle.id)" aria-label="...">
+                    </div>
+                </td>
                 <td>{{productoOfDetalle[i].nombre}}</td>
                 <td>${{productoOfDetalle[i].precio}}</td>
                 <td>{{detalle.cantidad}}</td>
                 <td>{{pedidoOfDetalle[i].estado_pedido.nombre}}</td>
                 <td>${{detalle.precio}}</td>
+                <td><button type="button" class="btn btn-success"><i class="fas fa-money-check-alt"></i></button>
+                </td>
             </tr>
         </tbody>
 
@@ -30,6 +45,7 @@
     <hr color="#ff0080">
     <label>Total Pedido: </label>
     <label>$ {{total}}</label>
+    <button type="button" style="float: right" type="submit" class="btn btn-success">Comprar Seleccionados</button>
 
 
 

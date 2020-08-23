@@ -16,12 +16,14 @@ export class PedidoComponent implements OnInit {
   productoOfDetalle:any[]=[];
   pedidoOfDetalle:any[]=[];
   total:number=0;
+  itemsSeleccionado:string[];
 
   constructor(private detallePedidoService: DetallePedidoService,private pedidoService:PedidoService,
     private productoService: ListarProductoService) { }
 
   ngOnInit(): void {
 
+    this.itemsSeleccionado=new Array<string>();
     this.pedidoService.all().subscribe((resp:any)=>
     {
       this.pedidos=resp[2];
@@ -65,6 +67,19 @@ export class PedidoComponent implements OnInit {
 
   console.log(this.productoOfDetalle);
   console.log(this.pedidoOfDetalle);
+
+}
+
+getPagar(a:any,id:string){
+
+  if(a.target.checked){
+  console.log(id+' Check');
+  this.itemsSeleccionado.push(id);
+  }else{
+  console.log(id+' sin check');
+  }
+
+  console.log(this.itemsSeleccionado);
 
 }
 

@@ -373,6 +373,11 @@ export class CrearProductoComponent implements OnInit {
           this.fileinput.nativeElement.value = '';
           form.resetForm();
           Swal.close();
+          Swal.fire({
+            icon: 'success',
+            title: 'Producto creado con éxito'
+
+          });
         }else{
           Swal.fire({
             icon: 'error',

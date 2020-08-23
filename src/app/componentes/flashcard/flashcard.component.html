@@ -11,18 +11,18 @@
     <div class="container col-lg-12">
         <div class="card-columns">
             <div class="card" *ngFor="let flashCard of flashCards; let i = index">
-                <img class="card-img-top img-fluid" src="{{ 'http://127.0.0.1:8000/'+flashCard.producto.img }}" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">{{flashCard.producto.nombre}}</h5>
+                <img class="card-img-top img-fluid mx-auto d-block" src="{{ 'http://127.0.0.1:8000/'+flashCard.producto.img }}" style="height: 200px; width: auto;">
+                <div class=" card-body ">
+                    <h5 class="card-title ">{{flashCard.producto.nombre}}</h5>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><b>Cantidad Hojas: </b>${{flashCard.cantidad_hojas}}</li>
-                    <li class="list-group-item"><b>Largo:  </b>{{flashCard.largo}} {{flashCard.unidad_medida}}</li>
-                    <li class="list-group-item"><b>Ancho: </b>{{flashCard.ancho}} {{flashCard.unidad_medida}}</li>
+                <ul class="list-group list-group-flush ">
+                    <li class="list-group-item "><b>Cantidad Hojas: </b>${{flashCard.cantidad_hojas}}</li>
+                    <li class="list-group-item "><b>Largo:  </b>{{flashCard.largo}} {{flashCard.unidad_medida}}</li>
+                    <li class="list-group-item "><b>Ancho: </b>{{flashCard.ancho}} {{flashCard.unidad_medida}}</li>
                 </ul>
-                <div class="card-body">
+                <div class="card-body ">
 
-                    <button class="btn btn-outline-primary btn-block" type="button" (click)="DisenarFlashCard(i)"> Diseñar</button>
+                    <button class="btn btn-outline-primary btn-block " type="button " (click)="DisenarFlashCard(i) "> Diseñar</button>
                 </div>
             </div>
         </div>

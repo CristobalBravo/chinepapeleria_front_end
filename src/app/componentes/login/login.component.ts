@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
       }
       console.log("Ingreso correcto");
 
-      this.router.navigateByUrl('/perfil');
+      this.router.navigateByUrl('/home');
 
 
 

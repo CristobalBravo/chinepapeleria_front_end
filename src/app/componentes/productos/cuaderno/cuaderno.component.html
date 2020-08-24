@@ -1,0 +1,35 @@
+<div class="container">
+
+    <hr color="#ff0080;">
+    <h1 style="color: #ff0080;">Lápices</h1>
+    <hr color="#ff0080">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a style="color: #ff0080;" [routerLink]="['home']">Inicio</a></li>
+            <li class="breadcrumb-item active" [routerLink]="['cuaderno']">Cuadernos</li>
+        </ol>
+    </nav>
+    <div class="container col-lg-12">
+        <div class="card-columns">
+            <div class="card" *ngFor="let cuaderno of cuadernos; let i = index">
+                <img class="card-img-top img-fluid mx-auto d-block" src="{{ 'http://127.0.0.1:8000/'+cuaderno.producto.img }}" style="height: 200px; width: auto;">
+                <div class="card-body">
+                    <h5 class="card-title">{{cuaderno.producto.nombre}}</h5>
+                    <p class="card-text">{{cuaderno.descripcion}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>Marca </b>{{cuaderno.producto.marca.nombre}}</li>
+                    <li class="list-group-item"><b>Precio: </b>${{cuaderno.producto.precio}}</li>
+                </ul>
+                <div class="card-body">
+                    <button type="button" (click)="disenarCuaderno(i)" class="btn btn-outline-primary btn-block">Diseñar</button>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

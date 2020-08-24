@@ -20,6 +20,8 @@ import { ListarPlanificadorComponent } from './componentes/productos/planificado
 import { DisenarPlanificadorComponent } from './componentes/productos/planificador/disenar/disenar-planificador/disenar-planificador.component';
 import { AgendaComponent } from './componentes/productos/agenda/agenda.component';
 import { DisenarAgendaComponent } from './componentes/productos/agenda/disenar-agenda/disenar-agenda.component';
+import { CuadernoComponent } from './componentes/productos/cuaderno/cuaderno.component';
+import { DisenarCuadernoComponent } from './componentes/productos/cuaderno/disenar-cuaderno/disenar-cuaderno.component';
 
 
 
@@ -42,6 +44,8 @@ const routes: Routes = [
   {path: 'pedido/detalle', component: PedidoComponent , canActivate: [AuthGuard]},
   {path: 'agenda', component: AgendaComponent},
   {path: 'agenda/disenar/:id', component: DisenarAgendaComponent},
+  {path: 'cuaderno', component: CuadernoComponent},
+  {path: 'cuaderno/disenar/:id', component: DisenarCuadernoComponent},
   {path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

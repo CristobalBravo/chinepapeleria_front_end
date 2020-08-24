@@ -35,7 +35,7 @@
                 <td>{{detalle.cantidad}}</td>
                 <td>{{pedidoOfDetalle[i].estado_pedido.nombre}}</td>
                 <td>${{detalle.precio}}</td>
-                <td><button type="button" class="btn btn-success"><i class="fas fa-money-check-alt"></i></button>
+                <td><button type="button" (click)="pagarPedido()" class="btn btn-success"><i class="fas fa-money-check-alt"></i></button>
                 </td>
             </tr>
         </tbody>
@@ -45,7 +45,7 @@
     <hr color="#ff0080">
     <label>Total Pedido: </label>
     <label>$ {{total}}</label>
-    <button type="button" style="float: right" type="submit" class="btn btn-success">Comprar Seleccionados</button>
+    <button type="button" style="float: right" type="submit" (click)="pagarPedido()" class="btn btn-success">Comprar Seleccionados</button>
 
 
 

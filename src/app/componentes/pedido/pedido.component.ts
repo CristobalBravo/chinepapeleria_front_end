@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DetallePedidoService } from '../../services/detalle-pedido.service';
 import { PedidoService } from '../../services/pedido.service';
 import { ListarProductoService } from '../../services/Producto/listar-producto.service';
+import Swal from 'sweetalert2';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-pedido',
@@ -82,5 +84,15 @@ getPagar(a:any,id:string){
   console.log(this.itemsSeleccionado);
 
 }
+
+  pagarPedido(){
+    Swal.fire({
+      title: 'Generando Pago WebPay',
+      html: '<i class="fa fa-credit-card-alt fa-5x fa-spin" aria-hidden="true" > </i> <div class="row "> <br>',
+
+
+    })
+    Swal.showLoading();
+  }
 
 }

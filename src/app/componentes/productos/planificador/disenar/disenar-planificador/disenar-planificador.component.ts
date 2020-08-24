@@ -29,13 +29,12 @@ export class DisenarPlanificadorComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(id=>{
       this.planificadorService.buscarPorId(id, localStorage.getItem("token")).subscribe((resp:any)=>{
-        console.log(resp);
         this.planificador=resp.planificador;
         this.producto=resp.planificador.producto;
       });
     });
 
-    this.tipoPlanificadorService.all().subscribe(resp=>{console.log(resp[2]);
+    this.tipoPlanificadorService.all().subscribe(resp=>{
       this.tiposPlanificador=resp[2]});
 
 
@@ -76,8 +75,6 @@ export class DisenarPlanificadorComponent implements OnInit {
         this.detallePedidoServicio
           .crearPedido(this.detallePedido, localStorage.getItem('token'))
           .subscribe((resp) => {
-
-            console.log(resp);
             let idPlanificador=this.planificador.id;
             let idDetallepedido=resp.detallePedido.id;
             this.confPlanificador.Planificador_id=idPlanificador;
@@ -85,12 +82,11 @@ export class DisenarPlanificadorComponent implements OnInit {
 
             this.planificadorService.crearConfiguracion(this.confPlanificador,localStorage.getItem("token"))
             .subscribe(resp=>{
-            console.log(resp);
+
           })
         });
         if (resp.status !== 'error') {
-          console.log(resp.status);
-          console.log(resp);
+
           Swal.fire({
             icon: 'success',
             title: 'Pedido creado con éxito.',

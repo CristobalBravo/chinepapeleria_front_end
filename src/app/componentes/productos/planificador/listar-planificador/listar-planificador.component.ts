@@ -14,9 +14,7 @@ export class ListarPlanificadorComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.planificadoresService.all().subscribe(resp=>{ console.log(resp);this.planificadores=resp[2]});
-
-    console.log(this.planificadores);
+    this.planificadoresService.all().subscribe(resp=>{ this.planificadores=resp[2]});
   }
 
 }

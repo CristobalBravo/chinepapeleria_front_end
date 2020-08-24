@@ -16,8 +16,6 @@ export class ListarLapizService {
 
   obtenerlapiz(id,token){
     let headers = new HttpHeaders().set('Authorization',token);
-
-    console.log(this.http.post(this.url+'lapiz/buscar',id,{headers:headers}));
     return this.http.post(this.url+'lapiz/buscar',id,{headers:headers});
 
   }
@@ -32,7 +30,6 @@ export class ListarLapizService {
 
     Object.keys(lapiz).forEach(id=>{
       const movies:any =lapiz[id];
-      console.log(movies);
       LapizArray.push(movies);
     })
     return LapizArray;

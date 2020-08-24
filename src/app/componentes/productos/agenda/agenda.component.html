@@ -18,14 +18,11 @@
                     <p class="card-text">{{agenda.descripcion}}</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <b>Color: </b>{{agenda.color}}
-                        <span class="badge badge-secondary" style="-webkit-text-stroke: 0.8px black; border:0.8px black solid;" [ngStyle]="{'background-color':agenda.color_rgb}">color</span>
-                    </li>
-                    <li class="list-group-item"><b>Precio: </b>${{agenda.producto.precio}}</li>
+
                     <li class="list-group-item"><b>Tamaño de Hoja: </b>{{agenda.tamanio_hoja.nombre}}</li>
                     <li class="list-group-item"><b>Tipo de Hoja: </b>{{agenda.tipo_hoja.nombre}}</li>
                     <li class="list-group-item"><b>Tipo de Tapa: </b>{{agenda.tipo_tapa.nombre}}</li>
+                    <li class="list-group-item"><b>Precio: </b>${{agenda.producto.precio}}</li>
                 </ul>
                 <div class="card-body">
 

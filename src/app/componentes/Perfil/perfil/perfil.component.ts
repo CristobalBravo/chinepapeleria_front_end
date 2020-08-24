@@ -26,7 +26,6 @@ export class PerfilComponent implements OnInit {
   ngOnInit(): void {
     this.isAdmin = this.loginService.admin();
     this.usuarioService.buscarUsuario(localStorage.getItem('token')).subscribe((resp:any)=> {
-      console.log(resp.usuario);
       this.user= resp.usuario;
     });
   }

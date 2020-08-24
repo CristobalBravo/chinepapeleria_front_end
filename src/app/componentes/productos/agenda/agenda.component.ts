@@ -15,7 +15,6 @@ export class AgendaComponent implements OnInit {
 
   ngOnInit(): void {
     this.AgendaService.all().subscribe((resp:any)=>{
-      console.log(resp[2]);
       this.agendas=resp[2];
     })
   }

@@ -25,9 +25,8 @@ export class CrearFlashCardComponent implements OnInit {
     if(form.invalid){
       console.log('formulario invalido');
     }
-    console.log(this.flashcard);
     this.flashcardService.crear(this.flashcard,localStorage.getItem('token')).subscribe((resp:any)=>{
-      console.log(resp.status);
+
       this.router.navigate(['/flashcard'])
 
     })

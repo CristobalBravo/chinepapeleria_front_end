@@ -35,11 +35,9 @@ export class CrearLapizComponent implements OnInit {
       console.log('Formulario no Válido');
       return;
     }
-    console.log(this.lapiz);
+
     this.crearLapizService.crearLapiz(this.lapiz,localStorage.getItem('token')).subscribe((resp:any)=>{
       if(resp.status==='error'){
-        console.log(resp.status);
-        console.log(resp);
          Swal.fire({
            icon: 'error',
           title: 'Error de Registro',
@@ -48,8 +46,7 @@ export class CrearLapizComponent implements OnInit {
 
         return;
       }
-      (console.log(resp));
-      (console.log(resp));
+
 
       Swal.close();
       Swal.fire({

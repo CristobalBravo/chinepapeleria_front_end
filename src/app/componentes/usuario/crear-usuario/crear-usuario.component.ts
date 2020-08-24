@@ -99,13 +99,11 @@ export class CrearUsuarioComponent implements OnInit {
     });
     Swal.showLoading();
 
-    console.log(this.userForm.value);
     this.usuario = this.userForm.value;
     this.usuarioService.crearUsuario(this.usuario).subscribe((resp: any) => {
 
       if (resp.status === 'error') {
-        console.log(resp.status);
-        console.log(resp);
+
         Swal.fire({
           icon: 'error',
           title: 'Error de Registro',
@@ -114,7 +112,6 @@ export class CrearUsuarioComponent implements OnInit {
 
         return;
       }
-      (console.log(resp));
       Swal.close();
       Swal.fire({
         icon: 'success',

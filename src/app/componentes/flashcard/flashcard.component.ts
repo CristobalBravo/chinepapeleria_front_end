@@ -17,7 +17,6 @@ export class FlashcardComponent implements OnInit {
   ngOnInit(): void {
     this.flashCardService.all().subscribe((resp:any)=>{
       this.flashCards=resp[2];
-      console.log(resp);
     })
 
   }

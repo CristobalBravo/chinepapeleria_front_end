@@ -55,7 +55,7 @@
                     <textarea [(ngModel)]="configuracionAgenda.observaciones" #observaciones="ngModel" name="observaciones" class="form-control" type="text"></textarea>
                     <br>
                     <div class="row p-md-1">
-                        <label class="col-form-label col-sm-5">Color Espiral del Planificador</label>
+                        <label class="col-form-label col-sm-5">Color Espiral</label>
                         <div class="col-sm-9">
                             <select required (change)="cambioColor($event)" [(ngModel)]="configuracionAgenda.ColorEspiral_id" #ColorEspiral_id="ngModel" name="ColorEspiral_id" class="form-control">
                           <option *ngFor="let col of colorEspiral" [value]="col.id">{{ col.color + ' (Tipo de Espiral: ' + col.tipoespiral.nombre + ')' }}</option>

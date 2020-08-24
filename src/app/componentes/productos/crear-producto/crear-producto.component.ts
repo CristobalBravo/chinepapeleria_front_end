@@ -313,7 +313,7 @@ export class CrearProductoComponent implements OnInit {
         return;
       }
     }
-    console.log(this.producto);
+
     if (this.producto.TipoProducto_id == this.AGENDA) {
       if (this.producto.agenda.cantidad_hojas != null) {
         formdata.append('cantidad_hojas', this.producto.agenda.cantidad_hojas.toString());
@@ -363,7 +363,7 @@ export class CrearProductoComponent implements OnInit {
     this.crearProductoService
       .crearProducto(formdata, localStorage.getItem('token'))
       .subscribe((resp) => {
-        console.log(resp);
+
         if (resp.status === 'success') {
           this.producto = new ProductoModel();
           this.producto.lapiz = new LapizModel();

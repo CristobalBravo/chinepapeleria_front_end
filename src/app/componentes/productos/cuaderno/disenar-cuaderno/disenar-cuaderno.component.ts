@@ -127,17 +127,14 @@ export class DisenarCuadernoComponent implements OnInit {
             let idDetallePedido=resp.detallePedido.id;
             this.configuracionCuaderno.Cuaderno_id=idCuaderno;
             this.configuracionCuaderno.DetallePedido_id=idDetallePedido;
-            console.log(this.configuracionCuaderno);
             this.cuadernoService
             .crearConfiguracion(this.configuracionCuaderno,localStorage.getItem('token'))
             .subscribe(resp=>{
-              console.log(resp);
             })
           });
 
         if (resp.status !== 'error') {
-          console.log(resp.status);
-          console.log(resp);
+
           Swal.fire({
             icon: 'success',
             title: 'Pedido creado con éxito.',

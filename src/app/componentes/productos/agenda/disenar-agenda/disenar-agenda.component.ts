@@ -39,22 +39,21 @@ export class DisenarAgendaComponent implements OnInit {
 
   ngOnInit(): void {
     this.ColorEspiralService.all().subscribe((resp) => {
-      console.log(resp)
       this.colorEspiral = resp.colorespiral;
-      console.log(this.colorEspiral);
+
     });
     this.ActivatedRoute.params.subscribe(resp=>{
       let l = new AgendaModel();
       l.id= resp.id;
       this.agendaService.obtenerAgenda(l,localStorage.getItem('token'))
       .subscribe((agenda:any)=>{
-        console.log(agenda);
+
         this.agenda=agenda.Agenda;
         this.producto=agenda.Agenda.producto;
         this.TamanioHoja=agenda.Agenda.tamanio_hoja;
         this.tipoTapa=agenda.Agenda.tipo_tapa;
         this.tipoHoja=agenda.Agenda.tipo_hoja;
-        console.log(this.TamanioHoja);
+
       })
     })
   }
@@ -98,21 +97,17 @@ export class DisenarAgendaComponent implements OnInit {
         this.detallePedidoService
           .crearPedido(this.detallePedido, localStorage.getItem('token'))
           .subscribe((resp) => {
-            console.log(this.agenda);
             let idAgenda=this.agenda.id;
-            console.log(idAgenda);
             let idDetallePedido=resp.detallePedido.id;
             this.configuracionAgenda.Agenda_id=idAgenda;
             this.configuracionAgenda.DetallePedido_id=idDetallePedido;
             this.agendaService
             .crearConfiguracion(this.configuracionAgenda,localStorage.getItem('token'))
             .subscribe(resp=>{
-              console.log(resp);
             })
           });
         if (resp.status !== 'error') {
-          console.log(resp.status);
-          console.log(resp);
+
           Swal.fire({
             icon: 'success',
             title: 'Pedido creado con éxito.',

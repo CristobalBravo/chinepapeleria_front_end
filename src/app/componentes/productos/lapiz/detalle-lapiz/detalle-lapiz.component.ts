@@ -82,12 +82,10 @@ export class DetalleLapizComponent implements OnInit {
         this.detallePedidoServicio
           .crearPedido(this.detallePedido, localStorage.getItem('token'))
           .subscribe((resp) => {
-            console.log(resp);
           });
 
         if (resp.status !== 'error') {
-          console.log(resp.status);
-          console.log(resp);
+
           Swal.fire({
             icon: 'success',
             title: 'Pedido creado con éxito.',

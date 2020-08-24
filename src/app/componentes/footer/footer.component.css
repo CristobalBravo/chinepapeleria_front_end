@@ -1,6 +1,6 @@
 f footer {
-    position: absolute;
+    position: static;
     bottom: 0;
-    width: 100%;
-    height: 40px;
+    width: 5%;
+    height: 5px;
 }

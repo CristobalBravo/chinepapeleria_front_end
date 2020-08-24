@@ -15,7 +15,6 @@ export class CuadernoComponent implements OnInit {
 
   ngOnInit(): void {
     this.cuadernoService.all().subscribe(resp=>{
-      console.log(resp);
       this.cuadernos= resp[2];
     });
   }

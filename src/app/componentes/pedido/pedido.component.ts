@@ -67,8 +67,7 @@ export class PedidoComponent implements OnInit {
 
   });
 
-  console.log(this.productoOfDetalle);
-  console.log(this.pedidoOfDetalle);
+
 
 }
 
@@ -80,8 +79,6 @@ getPagar(a:any,id:string){
   }else{
   console.log(id+' sin check');
   }
-
-  console.log(this.itemsSeleccionado);
 
 }
 

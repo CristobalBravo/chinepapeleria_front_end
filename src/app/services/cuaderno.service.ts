@@ -31,8 +31,6 @@ export class CuadernoService {
 
   obtenerCuaderno(id,token){
     let headers = new HttpHeaders().set('Authorization',token);
-
-    console.log(this.http.post(this.url+'lapiz/buscar',id,{headers:headers}));
     return this.http.post(this.url+'cuaderno/buscar',id,{headers:headers});
 
   }

@@ -101,8 +101,7 @@ export class DisenarComponent implements OnInit {
         })
 
         if (resp.status !== 'error') {
-          console.log(resp.status);
-          console.log(resp);
+
           Swal.fire({
             icon: 'success',
             title: 'Pedido creado con éxito.',

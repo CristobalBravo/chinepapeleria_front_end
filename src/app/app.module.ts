@@ -33,6 +33,7 @@ import { ListarComponent } from './componentes/productos/agenda/listar/listar.co
 import { ListarCuadernoComponent } from './componentes/productos/cuaderno/listar-cuaderno/listar-cuaderno.component';
 import { ListarFlashcardComponent } from './componentes/productos/FlashCard/listar-flashcard/listar-flashcard.component';
 import { ListarLapizComponent } from './componentes/productos/lapiz/listar-lapiz/listar-lapiz.component';
+import { ListplanificadorComponent } from './componentes/productos/planificador/listplanificador/listplanificador.component';
 
 
 
@@ -68,6 +69,7 @@ import { ListarLapizComponent } from './componentes/productos/lapiz/listar-lapiz
     ListarCuadernoComponent,
     ListarFlashcardComponent,
     ListarLapizComponent,
+    ListplanificadorComponent
 
 
   ],

@@ -9,19 +9,23 @@
             <tr>
                 <th scope="col">Imagen</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Marca</th>
+                <th scope="col">Tipo Hoja</th>
+                <th scope="col">Tamaño Hoja</th>
+                <th scope="col">Tipo Tapa</th>
                 <th scope="col">Precio</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let planificador of planificadores">
+            <tr *ngFor="let planificador of p">
                 <td>
-                    <img class="card-img-top img-fluid mx-auto d-block" src="{{ 'http://127.0.0.1:8000/'+planificador.producto.img }}" style="height: 200px; width: auto;">
+                    <img class="card-img-top img-fluid mx-auto d-block" src="{{ 'http://127.0.0.1:8000/'+ planificador.producto.img }}" style="height: 200px; width: auto;">
 
                 </td>
                 <td>{{planificador.producto.nombre}}</td>
-                <td>{{planificador.producto.marca.nombre}}</td>
+                <td>{{planificador.tipohoja.nombre}}</td>
+                <td>{{planificador.tamaniohoja.nombre}}</td>
+                <td>{{planificador.tipotapa.nombre}}</td>
                 <td>${{planificador.producto.precio}}</td>
                 <td><button type="button" class="btn btn-warning"><i class="far fa-edit"></i></button>
                     <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>

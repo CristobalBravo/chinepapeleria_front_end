@@ -7,14 +7,14 @@ import { PlanificadorService } from '../../../../services/planificador.service';
   styleUrls: ['./listplanificador.component.css']
 })
 export class ListplanificadorComponent implements OnInit {
- planificadores:any[]=[];
+ p:any[]=[];
   constructor(private planificadorService:PlanificadorService) { }
 
   ngOnInit(): void {
     this.planificadorService.all().subscribe((resp:any)=>{
 
-      this.planificadores=resp[2];
-      console.log(this.planificadores);
+      this.p=resp[2];
+      console.log(this.p);
     })
   }
 

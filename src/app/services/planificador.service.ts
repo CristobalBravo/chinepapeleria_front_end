@@ -43,6 +43,10 @@ export class PlanificadorService {
     let headers = new HttpHeaders().set('Authorization',token);
     return this.http.post(this.url+'planificador/buscar',id,{headers:headers});
   }
+  eliminar(id,token){
+    let headers = new HttpHeaders().set('Authorization',token);
+    return this.http.post(this.url+'planificador/eliminar',id,{headers:headers});
+  }
 
 
 }

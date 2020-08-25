@@ -35,10 +35,10 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'lapiz', component: LapizComponent},
   {path: 'flashcard', component: FlashcardComponent},
-  {path: 'planificador/crear', component: PlanificadorComponent},
+  {path: 'planificador/crear', component: PlanificadorComponent , canActivate: [AuthGuard]},
   {path: 'planificador', component: ListarPlanificadorComponent},
-  {path: 'flashcard/diseñar/:id', component: DisenarComponent},
-  {path: 'planificador/diseñar/:id', component: DisenarPlanificadorComponent},
+  {path: 'flashcard/diseñar/:id', component: DisenarComponent, canActivate: [AuthGuard]},
+  {path: 'planificador/diseñar/:id', component: DisenarPlanificadorComponent , canActivate: [AuthGuard]},
   {path: 'registrar', component: CrearUsuarioComponent},
   {path: 'producto/crear', component: CrearProductoComponent, canActivate: [AuthGuard]},
   {path: 'configuracion/flashcard/crear', component: CrearFlashCardComponent, canActivate: [AuthGuard]},
@@ -48,7 +48,7 @@ const routes: Routes = [
   {path: 'configuracion', component: ConfiguracionComponent, canActivate: [AuthGuard]},
   {path: 'pedido/detalle', component: PedidoComponent , canActivate: [AuthGuard]},
   {path: 'agenda', component: AgendaComponent},
-  {path: 'agenda/disenar/:id', component: DisenarAgendaComponent},
+  {path: 'agenda/disenar/:id', component: DisenarAgendaComponent, canActivate: [AuthGuard]},
   {path: 'cuaderno', component: CuadernoComponent},
   {path: 'listarAgenda', component: ListarComponent},
   {path: 'listarCuaderno', component: ListarCuadernoComponent},
@@ -56,7 +56,7 @@ const routes: Routes = [
   {path: 'listarLapices', component: ListarLapizComponent},
   {path: 'listarPlanificador', component: ListplanificadorComponent},
 
-  {path: 'cuaderno/disenar/:id', component: DisenarCuadernoComponent},
+  {path: 'cuaderno/disenar/:id', component: DisenarCuadernoComponent , canActivate: [AuthGuard]},
   {path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

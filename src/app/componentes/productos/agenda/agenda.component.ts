@@ -19,6 +19,7 @@ export class AgendaComponent implements OnInit {
     })
   }
   verAgenda(idx:number){
+
     this.agenda = this.agendas[idx];
     this.router.navigate(['agenda/disenar', this.agenda.id]);
   }

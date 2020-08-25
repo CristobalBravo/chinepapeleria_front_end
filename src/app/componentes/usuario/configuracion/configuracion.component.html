@@ -2,82 +2,72 @@
 
     <h1 style="color: #ff0080;">Configuración</h1>
     <hr color="#ff0080">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a style="color: #ff0080;" [routerLink]="['home']">Inicio</a></li>
+            <li class="breadcrumb-item active">Configuración</li>
+        </ol>
+    </nav>
 
     <div class="row row-cols-1 row-cols-md-3  align-content-center">
         <div class="col mb-4">
             <div class="card h-100">
-                <p>
-                    <img src="./assets/img/logo.jpeg" class="card-img-top " alt="100" style="height: 100px; width: auto;">
-                </p>
+                <a class="mt-4">
+                    <img src="./assets/Config/agenda.png" [routerLink]="['/listarAgenda']" class="card-img-top img-fluid mx-auto d-block " style="height: 200px; width: auto;">
+                </a>
                 <div class="card-body">
-                    <h5>Agenda</h5>
-                    <button class="btn btn-outline-info">Crear</button>
-                    <button class="btn btn-outline-info" [routerLink]="['/listarAgenda']">Listar</button>
+                    <h2 class="text-center" style="color: #ff0080;">Agenda</h2>
+
                 </div>
             </div>
         </div>
         <div class="col mb-4">
             <div class="card h-100">
-                <p>
-                    <img src="./assets/img/logo.jpeg" class="card-img-top " alt="100" style="height: 100px; width: auto;">
-                </p>
+                <a class="mt-4">
+                    <img src="./assets/Config/cuaderno.png" [routerLink]="['/listarCuaderno']" class="card-img-top img-fluid mx-auto d-block " alt="100" style="height: 200px; width: auto;">
+                </a>
                 <div class="card-body">
-                    <h5>Cuaderno</h5>
-                    <button class="btn btn-outline-info">Crear</button>
-                    <button class="btn btn-outline-info" [routerLink]="['/listarCuaderno']">Listar</button>
+                    <h2 class="text-center" style="color: #ff0080;">Cuaderno</h2>
                 </div>
             </div>
         </div>
         <div class="col mb-4">
             <div class="card h-100">
-                <p>
-                    <img src="./assets/img/logo.jpeg" class="card-img-top " alt="100" style="height: 100px; width: auto;">
-                </p>
+
+                <a class="mt-4">
+                    <img src="./assets/Config/flashcard.png" [routerLink]="['/listarFlashcard']" class="card-img-top img-fluid mx-auto d-block " alt="100" style="height: 200px; width: auto;">
+                </a>
+
                 <div class="card-body">
-                    <h5>Flashcard</h5>
-                    <button class="btn btn-outline-info" [routerLink]="['flashcard/crear']">Crear</button>
-                    <button class="btn btn-outline-info" [routerLink]="['/listarPlanificador']">Listar</button>
+                    <h2 class="text-center" style="color: #ff0080;">Flashcard</h2>
                 </div>
             </div>
         </div>
         <div class="col mb-4">
             <div class="card h-100">
-                <p>
-                    <img src="./assets/img/logo.jpeg" class="card-img-top " alt="100" style="height: 100px; width: auto;">
-                </p>
+                <a class="mt-4">
+                    <img src="./assets/Config/Lapiz.png" [routerLink]="['/listarLapices']" class="card-img-top img-fluid mx-auto d-block " alt="100" style="height: 200px; width: auto;">
+                </a>
                 <div class="card-body">
-                    <h5>Lápiz</h5>
-                    <button class="btn btn-outline-info" [routerLink]="['lapiz/crear']">Crear</button>
-                    <button class="btn btn-outline-info" [routerLink]="['/listarLapices']">Listar</button>
+                    <h2 class="text-center" style="color: #ff0080;">Lápiz</h2>
+
                 </div>
             </div>
         </div>
         <div class="col mb-4">
             <div class="card h-100">
-                <p>
-                    <img src="./assets/img/logo.jpeg" class="card-img-top " alt="100" style="height: 100px; width: auto;">
-                </p>
+                <a class="mt-4">
+                    <img src="./assets/Config/Planificador.png" [routerLink]="['/listarPlanificador']" class="card-img-top img-fluid mx-auto d-block " alt="100" style="height: 200px; width: auto;">
+                </a>
                 <div class="card-body">
-                    <h5>Planificador</h5>
-                    <button class="btn btn-outline-info">Crear </button>
-                    <button class="btn btn-outline-info" [routerLink]="['/listarPlanificador']">Listar</button> </div>
+                    <h2 class="text-center" style="color: #ff0080;">Planificador</h2>
+                </div>
             </div>
+
+
         </div>
 
-        <div class="col mb-4">
-            <div class="card h-100">
-                <p>
-                    <img src="./assets/img/logo.jpeg" class="card-img-top " alt="100" style="height: 100px; width: auto;">
-                </p>
-                <div class="card-body">
-                    <h5>Producto</h5>
-                    <button class="btn btn-outline-info" [routerLink]="['/producto/crear']">Crear </button>
-                    <button class="btn btn-outline-info">Listar</button> </div>
-            </div>
-        </div>
+
+
+
     </div>
-
-
-
-
-</div>

@@ -29,6 +29,10 @@ import { AgendaComponent } from './componentes/productos/agenda/agenda.component
 import { DisenarAgendaComponent } from './componentes/productos/agenda/disenar-agenda/disenar-agenda.component';
 import { CuadernoComponent } from './componentes/productos/cuaderno/cuaderno.component';
 import { DisenarCuadernoComponent } from './componentes/productos/cuaderno/disenar-cuaderno/disenar-cuaderno.component';
+import { ListarComponent } from './componentes/productos/agenda/listar/listar.component';
+import { ListarCuadernoComponent } from './componentes/productos/cuaderno/listar-cuaderno/listar-cuaderno.component';
+import { ListarFlashcardComponent } from './componentes/productos/FlashCard/listar-flashcard/listar-flashcard.component';
+import { ListarLapizComponent } from './componentes/productos/lapiz/listar-lapiz/listar-lapiz.component';
 
 
 
@@ -60,6 +64,11 @@ import { DisenarCuadernoComponent } from './componentes/productos/cuaderno/disen
     DisenarAgendaComponent,
     CuadernoComponent,
     DisenarCuadernoComponent,
+    ListarComponent,
+    ListarCuadernoComponent,
+    ListarFlashcardComponent,
+    ListarLapizComponent,
+
 
   ],
   imports: [

@@ -22,6 +22,11 @@ import { AgendaComponent } from './componentes/productos/agenda/agenda.component
 import { DisenarAgendaComponent } from './componentes/productos/agenda/disenar-agenda/disenar-agenda.component';
 import { CuadernoComponent } from './componentes/productos/cuaderno/cuaderno.component';
 import { DisenarCuadernoComponent } from './componentes/productos/cuaderno/disenar-cuaderno/disenar-cuaderno.component';
+import { ListarComponent } from './componentes/productos/agenda/listar/listar.component';
+import { ListarCuadernoComponent } from './componentes/productos/cuaderno/listar-cuaderno/listar-cuaderno.component';
+import { ListarFlashcardComponent } from './componentes/productos/FlashCard/listar-flashcard/listar-flashcard.component';
+import { ListarLapizComponent } from './componentes/productos/lapiz/listar-lapiz/listar-lapiz.component';
+import { ListplanificadorComponent } from './componentes/productos/planificador/listplanificador/listplanificador.component';
 
 
 
@@ -45,6 +50,12 @@ const routes: Routes = [
   {path: 'agenda', component: AgendaComponent},
   {path: 'agenda/disenar/:id', component: DisenarAgendaComponent},
   {path: 'cuaderno', component: CuadernoComponent},
+  {path: 'listarAgenda', component: ListarComponent},
+  {path: 'listarCuaderno', component: ListarCuadernoComponent},
+  {path: 'listarFlashcard', component: ListarFlashcardComponent},
+  {path: 'listarLapices', component: ListarLapizComponent},
+  {path: 'listarPlanificador', component: ListplanificadorComponent},
+
   {path: 'cuaderno/disenar/:id', component: DisenarCuadernoComponent},
   {path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];

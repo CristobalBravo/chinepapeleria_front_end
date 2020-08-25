@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <h5>Agenda</h5>
                     <button class="btn btn-outline-info">Crear</button>
-                    <button class="btn btn-outline-info">Listar</button>
+                    <button class="btn btn-outline-info" [routerLink]="['/listarAgenda']">Listar</button>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <h5>Cuaderno</h5>
                     <button class="btn btn-outline-info">Crear</button>
-                    <button class="btn btn-outline-info">Listar</button>
+                    <button class="btn btn-outline-info" [routerLink]="['/listarCuaderno']">Listar</button>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
                 <div class="card-body">
                     <h5>Flashcard</h5>
                     <button class="btn btn-outline-info" [routerLink]="['flashcard/crear']">Crear</button>
-                    <button class="btn btn-outline-info" [routerLink]="['/flashcard']">Listar</button>
+                    <button class="btn btn-outline-info" [routerLink]="['/listarLapices']">Listar</button>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                 <div class="card-body">
                     <h5>Lápiz</h5>
                     <button class="btn btn-outline-info" [routerLink]="['lapiz/crear']">Crear</button>
-                    <button class="btn btn-outline-info" [routerLink]="['/lapiz']">Listar</button>
+                    <button class="btn btn-outline-info" [routerLink]="['/listarLapices']">Listar</button>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
                 <div class="card-body">
                     <h5>Planificador</h5>
                     <button class="btn btn-outline-info">Crear </button>
-                    <button class="btn btn-outline-info">Listar</button> </div>
+                    <button class="btn btn-outline-info" [routerLink]="['/listarPlanificador']">Listar</button> </div>
             </div>
         </div>
 

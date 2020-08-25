@@ -38,4 +38,8 @@ export class CuadernoService {
     let headers = new HttpHeaders().set('Authorization',token);
     return this.http.post(this.url+'configuracioncuaderno/crear',cuaderno, {headers:headers} );
   }
+  eliminar(id,token){
+    let headers = new HttpHeaders().set('Authorization',token);
+    return this.http.post(this.url+'cuaderno/eliminar',id,{headers:headers});
+  }
 }

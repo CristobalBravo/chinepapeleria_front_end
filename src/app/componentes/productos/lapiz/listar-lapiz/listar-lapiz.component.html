@@ -1,7 +1,7 @@
 <div class="container mt-5">
 
     <hr color="#ff0080;">
-    <h1 style="color: #ff0080;">Flashcards</h1>
+    <h1 style="color: #ff0080;">Lápices</h1>
     <hr color="#ff0080">
 
     <table class="table">
@@ -28,7 +28,7 @@
 
                 <td>${{lapiz.producto.precio}}</td>
                 <td><button type="button" class="btn btn-warning"><i class="far fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                    <button type="button" class="btn btn-danger" (click)="eliminar(i)"><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
         </tbody>

@@ -39,4 +39,9 @@ export class AgendaService {
     let headers = new HttpHeaders().set('Authorization',token);
     return this.http.post(this.url+'configuracionAgenda/crear',agenda, {headers:headers} );
   }
+
+  eliminar(id,token){
+    let headers = new HttpHeaders().set('Authorization',token);
+    return this.http.post("http://localhost:8000/api/agenda/eliminar",id, {headers:headers} );
+  }
 }

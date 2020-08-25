@@ -28,7 +28,7 @@
                 <td>{{agenda.tipo_tapa.nombre}}</td>
                 <td>${{agenda.producto.precio}}</td>
                 <td><button type="button" class="btn btn-warning"><i class="far fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                    <button type="button" class="btn btn-danger" (click)="eliminar(i)"><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
         </tbody>

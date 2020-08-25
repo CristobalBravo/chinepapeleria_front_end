@@ -65,7 +65,17 @@ export class DetalleLapizComponent implements OnInit {
       console.log('formulario invalido');
     }
 
+
     let cantidad = this.detallePedido.cantidad;
+
+    if(cantidad==0){
+      Swal.fire({
+        icon: 'error',
+        title: 'Debe ingresar al menos un producto',
+      });
+      return;
+    }
+
     let precio = cantidad * this.producto.precio;
 
     this.detallePedido.precio = precio.toString();

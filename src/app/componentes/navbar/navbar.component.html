@@ -13,11 +13,13 @@
                   Tienda
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" style="color: #ff0080;" [routerLink]="['lapiz']">Lápiz</a>
-                    <a class="dropdown-item" style="color: #ff0080;" [routerLink]="['flashcard']">FlashCard</a>
-                    <a class="dropdown-item" style="color: #ff0080;" [routerLink]="['planificador']">Planificador</a>
                     <a class="dropdown-item" style="color: #ff0080;" [routerLink]="['agenda']">Agenda</a>
                     <a class="dropdown-item" style="color: #ff0080;" [routerLink]="['cuaderno']">Cuaderno</a>
+                    <a class="dropdown-item" style="color: #ff0080;" [routerLink]="['flashcard']">FlashCard</a>
+                    <a class="dropdown-item" style="color: #ff0080;" [routerLink]="['lapiz']">Lápiz</a>
+                    <a class="dropdown-item" style="color: #ff0080;" [routerLink]="['planificador']">Planificador</a>
+
+
                 </div>
             </li>
             <li class="nav-item dropdown" *ngIf="login.admin()">

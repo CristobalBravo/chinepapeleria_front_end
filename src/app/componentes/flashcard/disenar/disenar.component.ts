@@ -66,6 +66,13 @@ export class DisenarComponent implements OnInit {
     if(form.invalid){
       console.log('formulario invalido');
     }
+    if(this.detallePedido.cantidad==0){
+      Swal.fire({
+        icon: 'error',
+        title: 'Debe ingresar al menos un producto',
+      });
+      return;
+    }
 
     if (localStorage.getItem('token')!= null){
       //creo un diseño

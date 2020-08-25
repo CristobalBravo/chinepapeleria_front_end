@@ -90,6 +90,13 @@ export class DisenarAgendaComponent implements OnInit {
       .crearPedido(null, localStorage.getItem('token'))
       .subscribe((resp: any) => {
         let cantidad = this.detallePedido.cantidad;
+        if(cantidad==0){
+          Swal.fire({
+            icon: 'error',
+            title: 'Debe ingresar al menos un producto',
+          });
+          return;
+        }
         let precio = cantidad * this.producto.precio;
         this.detallePedido.precio = precio.toString();
         this.detallePedido.Pedido_id = resp.pedido.id;

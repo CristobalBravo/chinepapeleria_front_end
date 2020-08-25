@@ -35,4 +35,10 @@ export class ListarLapizService {
     return LapizArray;
   }
 
+  eliminar(lapiz,token){
+    let headers = new HttpHeaders().set('Authorization',token);
+    return this.http.post(this.url+'lapiz/eliminar',lapiz,{headers:headers});
+
+  }
+
 }

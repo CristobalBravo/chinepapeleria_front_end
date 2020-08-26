@@ -50,7 +50,6 @@ export class PlanificadorComponent implements OnInit {
 
   guardar(form:NgForm){
     if(form.invalid){
-      console.log('Formulario no Válido');
       return;
     }
     this.planificadorService.crear(this.planificador,localStorage.getItem('token')).subscribe((resp:any)=>{

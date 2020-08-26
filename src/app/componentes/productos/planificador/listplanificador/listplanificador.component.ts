@@ -17,7 +17,6 @@ export class ListplanificadorComponent implements OnInit {
     this.planificadorService.all().subscribe((resp:any)=>{
 
       this.p=resp[2];
-      console.log(this.p);
     })
   }
   editar(idx){
@@ -38,7 +37,6 @@ export class ListplanificadorComponent implements OnInit {
     }).then(resp=>{
       if(resp.value){
         this.planificadorService.eliminar(this.planificador,localStorage.getItem('token')).subscribe(resp=>{
-          console.log(resp);
         });
         this.p.splice(idx,1);
       }
